@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/utils.dart';
 
 class Scene extends StatelessWidget {
+  const Scene({super.key});
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Container(
         // botesnavegaoj27 (30:998)
         padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
         width: double.infinity,
-        decoration: BoxDecoration (
+        decoration: const BoxDecoration (
           color: Color(0x7f000000),
         ),
         child: Row(
@@ -40,8 +38,8 @@ class Scene extends StatelessWidget {
               height: 18*fem,
               decoration: BoxDecoration (
                 borderRadius: BorderRadius.circular(9*fem),
-                border: Border.all(color: Color(0xccffffff)),
-                color: Color(0x00d9d9d9),
+                border: Border.all(color: const Color(0xccffffff)),
+                color: const Color(0x00d9d9d9),
               ),
             ),
             Container(
@@ -50,7 +48,7 @@ class Scene extends StatelessWidget {
               height: 18*fem,
               decoration: BoxDecoration (
                 borderRadius: BorderRadius.circular(2*fem),
-                border: Border.all(color: Color(0xccffffff)),
+                border: Border.all(color: const Color(0xccffffff)),
               ),
             ),
           ],

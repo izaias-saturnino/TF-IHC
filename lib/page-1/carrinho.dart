@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
 class Scene extends StatelessWidget {
+  const Scene({super.key});
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Container(
         // carrinhobUb (2:9)
         width: double.infinity,
         height: 800*fem,
-        decoration: BoxDecoration (
+        decoration: const BoxDecoration (
           color: Color(0x33ffd700),
         ),
-        child: Container(
+        child: SizedBox(
           // frame46i3R (67:937)
           width: double.infinity,
           height: double.infinity,
@@ -30,7 +29,7 @@ class Scene extends StatelessWidget {
                 // frame303rP (I10:415;64:8942)
                 padding: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 9*fem),
                 width: double.infinity,
-                decoration: BoxDecoration (
+                decoration: const BoxDecoration (
                   color: Color(0xffb22222),
                 ),
                 child: Column(
@@ -42,7 +41,7 @@ class Scene extends StatelessWidget {
                       padding: EdgeInsets.fromLTRB(35*fem, 12*fem, 35*fem, 12*fem),
                       width: double.infinity,
                       height: 74*fem,
-                      decoration: BoxDecoration (
+                      decoration: const BoxDecoration (
                         color: Color(0xffd02b2b),
                       ),
                       child: Row(
@@ -53,7 +52,7 @@ class Scene extends StatelessWidget {
                             padding: EdgeInsets.fromLTRB(5*fem, 6*fem, 5*fem, 6.42*fem),
                             height: double.infinity,
                             decoration: BoxDecoration (
-                              color: Color(0xffffd700),
+                              color: const Color(0xffffd700),
                               borderRadius: BorderRadius.circular(25*fem),
                             ),
                             child: Center(
@@ -76,7 +75,7 @@ class Scene extends StatelessWidget {
                             padding: EdgeInsets.fromLTRB(1*fem, 3*fem, 1*fem, 4*fem),
                             height: double.infinity,
                             decoration: BoxDecoration (
-                              color: Color(0xffffd700),
+                              color: const Color(0xffffd700),
                               borderRadius: BorderRadius.circular(25*fem),
                             ),
                             child: Center(
@@ -99,7 +98,7 @@ class Scene extends StatelessWidget {
                             padding: EdgeInsets.fromLTRB(11.16*fem, 7*fem, 12.06*fem, 7*fem),
                             height: double.infinity,
                             decoration: BoxDecoration (
-                              color: Color(0xffffd700),
+                              color: const Color(0xffffd700),
                               borderRadius: BorderRadius.circular(25*fem),
                             ),
                             child: Center(
@@ -127,14 +126,14 @@ class Scene extends StatelessWidget {
                           fontSize: 26*ffem,
                           fontWeight: FontWeight.w400,
                           height: 1.2125*ffem/fem,
-                          color: Color(0xffffffff),
+                          color: const Color(0xffffffff),
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 // autoscroll7mh (10:397)
                 width: 359*fem,
                 height: 511*fem,
@@ -153,7 +152,7 @@ class Scene extends StatelessWidget {
                             width: double.infinity,
                             height: 115*fem,
                             decoration: BoxDecoration (
-                              color: Color(0xffd9d9d9),
+                              color: const Color(0xffd9d9d9),
                               borderRadius: BorderRadius.circular(10*fem),
                             ),
                             child: Stack(
@@ -180,7 +179,7 @@ class Scene extends StatelessWidget {
                                   // component1xfq (10:401)
                                   left: 0*fem,
                                   top: 0*fem,
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 298.84*fem,
                                     height: 115*fem,
                                     child: Stack(
@@ -211,7 +210,7 @@ class Scene extends StatelessWidget {
                                               height: 115*fem,
                                               child: Container(
                                                 decoration: BoxDecoration (
-                                                  color: Color(0xffd1a000),
+                                                  color: const Color(0xffd1a000),
                                                   borderRadius: BorderRadius.only (
                                                     topLeft: Radius.circular(10*fem),
                                                     bottomLeft: Radius.circular(10*fem),
@@ -236,7 +235,7 @@ class Scene extends StatelessWidget {
                                                   fontSize: 24*ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height: 1.2125*ffem/fem,
-                                                  color: Color(0xff000000),
+                                                  color: const Color(0xff000000),
                                                 ),
                                               ),
                                             ),
@@ -257,7 +256,7 @@ class Scene extends StatelessWidget {
                             width: double.infinity,
                             height: 115*fem,
                             decoration: BoxDecoration (
-                              color: Color(0xffd9d9d9),
+                              color: const Color(0xffd9d9d9),
                               borderRadius: BorderRadius.circular(10*fem),
                             ),
                             child: Stack(
@@ -284,7 +283,7 @@ class Scene extends StatelessWidget {
                                   // component1D7u (10:405)
                                   left: 0*fem,
                                   top: 0*fem,
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 298.84*fem,
                                     height: 115*fem,
                                     child: Stack(
@@ -315,7 +314,7 @@ class Scene extends StatelessWidget {
                                               height: 115*fem,
                                               child: Container(
                                                 decoration: BoxDecoration (
-                                                  color: Color(0xffd1a000),
+                                                  color: const Color(0xffd1a000),
                                                   borderRadius: BorderRadius.only (
                                                     topLeft: Radius.circular(10*fem),
                                                     bottomLeft: Radius.circular(10*fem),
@@ -340,7 +339,7 @@ class Scene extends StatelessWidget {
                                                   fontSize: 24*ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height: 1.2125*ffem/fem,
-                                                  color: Color(0xff000000),
+                                                  color: const Color(0xff000000),
                                                 ),
                                               ),
                                             ),
@@ -361,7 +360,7 @@ class Scene extends StatelessWidget {
                             width: double.infinity,
                             height: 115*fem,
                             decoration: BoxDecoration (
-                              color: Color(0xffd9d9d9),
+                              color: const Color(0xffd9d9d9),
                               borderRadius: BorderRadius.circular(10*fem),
                             ),
                             child: Stack(
@@ -388,7 +387,7 @@ class Scene extends StatelessWidget {
                                   // component1SoH (10:409)
                                   left: 0*fem,
                                   top: 0*fem,
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 298.84*fem,
                                     height: 115*fem,
                                     child: Stack(
@@ -419,7 +418,7 @@ class Scene extends StatelessWidget {
                                               height: 115*fem,
                                               child: Container(
                                                 decoration: BoxDecoration (
-                                                  color: Color(0xffd1a000),
+                                                  color: const Color(0xffd1a000),
                                                   borderRadius: BorderRadius.only (
                                                     topLeft: Radius.circular(10*fem),
                                                     bottomLeft: Radius.circular(10*fem),
@@ -444,7 +443,7 @@ class Scene extends StatelessWidget {
                                                   fontSize: 24*ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height: 1.2125*ffem/fem,
-                                                  color: Color(0xff000000),
+                                                  color: const Color(0xff000000),
                                                 ),
                                               ),
                                             ),
@@ -465,7 +464,7 @@ class Scene extends StatelessWidget {
                             width: double.infinity,
                             height: 115*fem,
                             decoration: BoxDecoration (
-                              color: Color(0xffd9d9d9),
+                              color: const Color(0xffd9d9d9),
                               borderRadius: BorderRadius.circular(10*fem),
                             ),
                             child: Stack(
@@ -492,7 +491,7 @@ class Scene extends StatelessWidget {
                                   // component1kb1 (10:413)
                                   left: 0*fem,
                                   top: 0*fem,
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 298.84*fem,
                                     height: 115*fem,
                                     child: Stack(
@@ -523,7 +522,7 @@ class Scene extends StatelessWidget {
                                               height: 115*fem,
                                               child: Container(
                                                 decoration: BoxDecoration (
-                                                  color: Color(0xffd1a000),
+                                                  color: const Color(0xffd1a000),
                                                   borderRadius: BorderRadius.only (
                                                     topLeft: Radius.circular(10*fem),
                                                     bottomLeft: Radius.circular(10*fem),
@@ -548,7 +547,7 @@ class Scene extends StatelessWidget {
                                                   fontSize: 24*ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height: 1.2125*ffem/fem,
-                                                  color: Color(0xff000000),
+                                                  color: const Color(0xff000000),
                                                 ),
                                               ),
                                             ),
@@ -568,7 +567,7 @@ class Scene extends StatelessWidget {
                       // bottom1vF (10:414)
                       width: double.infinity,
                       height: 1*fem,
-                      decoration: BoxDecoration (
+                      decoration: const BoxDecoration (
                         color: Color(0xffffffff),
                       ),
                     ),
@@ -581,10 +580,10 @@ class Scene extends StatelessWidget {
                 width: double.infinity,
                 height: 124*fem,
                 decoration: BoxDecoration (
-                  border: Border.all(color: Color(0xffd9d9d9)),
-                  color: Color(0xffb22222),
+                  border: Border.all(color: const Color(0xffd9d9d9)),
+                  color: const Color(0xffb22222),
                 ),
-                child: Container(
+                child: SizedBox(
                   // frame2hYB (10:52)
                   width: double.infinity,
                   height: double.infinity,
@@ -608,7 +607,7 @@ class Scene extends StatelessWidget {
                                   fontSize: 18*ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.2125*ffem/fem,
-                                  color: Color(0xffffffff),
+                                  color: const Color(0xffffffff),
                                 ),
                               ),
                             ),
@@ -620,7 +619,7 @@ class Scene extends StatelessWidget {
                                 fontSize: 18*ffem,
                                 fontWeight: FontWeight.w400,
                                 height: 1.2125*ffem/fem,
-                                color: Color(0xffffffff),
+                                color: const Color(0xffffffff),
                               ),
                             ),
                           ],
@@ -631,7 +630,7 @@ class Scene extends StatelessWidget {
                         width: double.infinity,
                         height: 42*fem,
                         decoration: BoxDecoration (
-                          color: Color(0xffffd700),
+                          color: const Color(0xffffd700),
                           borderRadius: BorderRadius.circular(21*fem),
                         ),
                         child: Center(
@@ -642,7 +641,7 @@ class Scene extends StatelessWidget {
                               fontSize: 18*ffem,
                               fontWeight: FontWeight.w400,
                               height: 1.2125*ffem/fem,
-                              color: Color(0xff000000),
+                              color: const Color(0xff000000),
                             ),
                           ),
                         ),
@@ -655,7 +654,7 @@ class Scene extends StatelessWidget {
                 // botesnavegaoUas (10:23)
                 padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
                 width: double.infinity,
-                decoration: BoxDecoration (
+                decoration: const BoxDecoration (
                   color: Color(0x7f000000),
                 ),
                 child: Row(
@@ -679,8 +678,8 @@ class Scene extends StatelessWidget {
                       height: 18*fem,
                       decoration: BoxDecoration (
                         borderRadius: BorderRadius.circular(9*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                        color: Color(0x00d9d9d9),
+                        border: Border.all(color: const Color(0xccffffff)),
+                        color: const Color(0x00d9d9d9),
                       ),
                     ),
                     Container(
@@ -689,7 +688,7 @@ class Scene extends StatelessWidget {
                       height: 18*fem,
                       decoration: BoxDecoration (
                         borderRadius: BorderRadius.circular(2*fem),
-                        border: Border.all(color: Color(0xccffffff)),
+                        border: Border.all(color: const Color(0xccffffff)),
                       ),
                     ),
                   ],
