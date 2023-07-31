@@ -16,7 +16,7 @@ class Scene extends StatelessWidget {
         // recuperaodesenha4co (67:851)
         width: double.infinity,
         decoration: BoxDecoration (
-          color: Color(0x33ffd700),
+          color: Color(0xff4B4318),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
