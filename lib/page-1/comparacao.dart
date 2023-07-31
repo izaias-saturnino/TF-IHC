@@ -359,7 +359,7 @@ class Scene extends StatelessWidget {
                                         children: [
                                           Container(
                                             // line9zHm (I10:605;9:557)
-                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 27.5*fem, 0*fem),
+                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 25.5*fem, 0*fem),
                                             width: 0.5*fem,
                                             height: 30*fem,
                                             decoration: BoxDecoration (
@@ -658,7 +658,7 @@ class Scene extends StatelessWidget {
                                         children: [
                                           Container(
                                             // line9KTm (I63:484;9:557)
-                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 27.5*fem, 0*fem),
+                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 25.5*fem, 0*fem),
                                             width: 0.5*fem,
                                             height: 30*fem,
                                             decoration: BoxDecoration (
@@ -744,54 +744,54 @@ class Scene extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                // botesnavegaoLXH (9:326)
-                padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
-                width: double.infinity,
-                decoration: BoxDecoration (
-                  color: Color(0x7f000000),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      // polygon1Ecf (I9:326;9:51)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
-                      width: 16*fem,
-                      height: 20*fem,
-                      child: Image.asset(
-                        'assets/page-1/images/polygon-1-QyM.png',
-                        width: 16*fem,
-                        height: 20*fem,
-                      ),
-                    ),
-                    Container(
-                      // ellipse3Y7Z (I9:326;10:489)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
-                      width: 18*fem,
-                      height: 18*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(9*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                        color: Color(0x00d9d9d9),
-                      ),
-                    ),
-                    Container(
-                      // rectangle7qcT (I9:326;9:49)
-                      width: 18*fem,
-                      height: 18*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(2*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   // botesnavegaoLXH (9:326)
+              //   padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
+              //   width: double.infinity,
+              //   decoration: BoxDecoration (
+              //     color: Color(0x7f000000),
+              //   ),
+              //   child: Row(
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       Container(
+              //         // polygon1Ecf (I9:326;9:51)
+              //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
+              //         width: 16*fem,
+              //         height: 20*fem,
+              //         child: Image.asset(
+              //           'assets/page-1/images/polygon-1-QyM.png',
+              //           width: 16*fem,
+              //           height: 20*fem,
+              //         ),
+              //       ),
+              //       Container(
+              //         // ellipse3Y7Z (I9:326;10:489)
+              //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
+              //         width: 18*fem,
+              //         height: 18*fem,
+              //         decoration: BoxDecoration (
+              //           borderRadius: BorderRadius.circular(9*fem),
+              //           border: Border.all(color: Color(0xccffffff)),
+              //           color: Color(0x00d9d9d9),
+              //         ),
+              //       ),
+              //       Container(
+              //         // rectangle7qcT (I9:326;9:49)
+              //         width: 18*fem,
+              //         height: 18*fem,
+              //         decoration: BoxDecoration (
+              //           borderRadius: BorderRadius.circular(2*fem),
+              //           border: Border.all(color: Color(0xccffffff)),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),
       ),
-          );
+    );
   }
 }
