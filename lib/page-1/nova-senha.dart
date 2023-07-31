@@ -13,6 +13,10 @@ class NovaSenha extends StatelessWidget {
     return SafeArea(
       child: Container(
         width: double.infinity,
+        height: 800*fem,
+        decoration: BoxDecoration (
+          color: Color(0xff4B4318),
+        ),
         child: Container(
           // FLzj (30:889)
           width: double.infinity,

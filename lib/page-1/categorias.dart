@@ -13,6 +13,10 @@ class Categorias extends StatelessWidget {
     return SafeArea(
       child: Container(
         width: double.infinity,
+        height: 900*fem,
+        decoration: BoxDecoration (
+          color: Color(0xff4B4318),
+        ),
         child: Container(
           // categoriasoPD (9:6)
           width: double.infinity,

@@ -13,6 +13,10 @@ class Prato extends StatelessWidget {
     return SafeArea(
       child: Container(
         width: double.infinity,
+        height: 801*fem,
+        decoration: BoxDecoration (
+          color: Color(0xff4B4318),
+        ),
         child: Container(
           // pratop4P (63:919)
           width: double.infinity,
