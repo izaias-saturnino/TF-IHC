@@ -298,54 +298,54 @@ class Scene extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                // botesnavegaoieB (67:1379)
-                padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
-                width: double.infinity,
-                decoration: BoxDecoration (
-                  color: Color(0x7f000000),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      // polygon1oQj (I67:1379;9:51)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
-                      width: 16*fem,
-                      height: 20*fem,
-                      child: Image.asset(
-                        'assets/page-1/images/polygon-1-38B.png',
-                        width: 16*fem,
-                        height: 20*fem,
-                      ),
-                    ),
-                    Container(
-                      // ellipse36ud (I67:1379;10:489)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
-                      width: 18*fem,
-                      height: 18*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(9*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                        color: Color(0x00d9d9d9),
-                      ),
-                    ),
-                    Container(
-                      // rectangle7RS7 (I67:1379;9:49)
-                      width: 18*fem,
-                      height: 18*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(2*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   // botesnavegaoieB (67:1379)
+              //   padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
+              //   width: double.infinity,
+              //   decoration: BoxDecoration (
+              //     color: Color(0x7f000000),
+              //   ),
+              //   child: Row(
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       Container(
+              //         // polygon1oQj (I67:1379;9:51)
+              //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
+              //         width: 16*fem,
+              //         height: 20*fem,
+              //         child: Image.asset(
+              //           'assets/page-1/images/polygon-1-38B.png',
+              //           width: 16*fem,
+              //           height: 20*fem,
+              //         ),
+              //       ),
+              //       Container(
+              //         // ellipse36ud (I67:1379;10:489)
+              //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
+              //         width: 18*fem,
+              //         height: 18*fem,
+              //         decoration: BoxDecoration (
+              //           borderRadius: BorderRadius.circular(9*fem),
+              //           border: Border.all(color: Color(0xccffffff)),
+              //           color: Color(0x00d9d9d9),
+              //         ),
+              //       ),
+              //       Container(
+              //         // rectangle7RS7 (I67:1379;9:49)
+              //         width: 18*fem,
+              //         height: 18*fem,
+              //         decoration: BoxDecoration (
+              //           borderRadius: BorderRadius.circular(2*fem),
+              //           border: Border.all(color: Color(0xccffffff)),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),
       ),
-          );
+    );
   }
 }

@@ -165,7 +165,7 @@ class Scene extends StatelessWidget {
                                       fontSize: 24*ffem,
                                       fontWeight: FontWeight.w400,
                                       height: 1.2125*ffem/fem,
-                                      color: Color(0xffffffff),
+                                      color: Colors.black,//Color(0xffffffff),
                                     ),
                                   ),
                                 ),
@@ -197,7 +197,7 @@ class Scene extends StatelessWidget {
                                       fontSize: 24*ffem,
                                       fontWeight: FontWeight.w400,
                                       height: 1.2125*ffem/fem,
-                                      color: Color(0xffffffff),
+                                      color: Colors.black,//Color(0xffffffff),
                                     ),
                                   ),
                                 ),
@@ -249,54 +249,54 @@ class Scene extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                // botesnavegaon5M (67:1277)
-                padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
-                width: double.infinity,
-                decoration: BoxDecoration (
-                  color: Color(0x7f000000),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      // polygon1tPH (I67:1277;9:51)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
-                      width: 16*fem,
-                      height: 20*fem,
-                      child: Image.asset(
-                        'assets/page-1/images/polygon-1-8ns.png',
-                        width: 16*fem,
-                        height: 20*fem,
-                      ),
-                    ),
-                    Container(
-                      // ellipse3Ces (I67:1277;10:489)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
-                      width: 18*fem,
-                      height: 18*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(9*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                        color: Color(0x00d9d9d9),
-                      ),
-                    ),
-                    Container(
-                      // rectangle7iNK (I67:1277;9:49)
-                      width: 18*fem,
-                      height: 18*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(2*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   // botesnavegaon5M (67:1277)
+              //   padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
+              //   width: double.infinity,
+              //   decoration: BoxDecoration (
+              //     color: Color(0x7f000000),
+              //   ),
+              //   child: Row(
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       Container(
+              //         // polygon1tPH (I67:1277;9:51)
+              //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
+              //         width: 16*fem,
+              //         height: 20*fem,
+              //         child: Image.asset(
+              //           'assets/page-1/images/polygon-1-8ns.png',
+              //           width: 16*fem,
+              //           height: 20*fem,
+              //         ),
+              //       ),
+              //       Container(
+              //         // ellipse3Ces (I67:1277;10:489)
+              //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
+              //         width: 18*fem,
+              //         height: 18*fem,
+              //         decoration: BoxDecoration (
+              //           borderRadius: BorderRadius.circular(9*fem),
+              //           border: Border.all(color: Color(0xccffffff)),
+              //           color: Color(0x00d9d9d9),
+              //         ),
+              //       ),
+              //       Container(
+              //         // rectangle7iNK (I67:1277;9:49)
+              //         width: 18*fem,
+              //         height: 18*fem,
+              //         decoration: BoxDecoration (
+              //           borderRadius: BorderRadius.circular(2*fem),
+              //           border: Border.all(color: Color(0xccffffff)),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),
       ),
-          );
+    );
   }
 }

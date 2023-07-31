@@ -196,14 +196,14 @@ class Scene extends StatelessWidget {
                     ),
                     Container(
                       // autogroupzzqwh4T (BXUSizbFU32QRW9MzSZzQw)
-                      padding: EdgeInsets.fromLTRB(3.02*fem, 35*fem, 3.02*fem, 0*fem),
+                      padding: EdgeInsets.fromLTRB(3.0*fem, 35*fem, 0*fem, 0*fem),
                       width: double.infinity,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
                             // frame38odH (67:928)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 109*fem, 0*fem),
+                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 100*fem, 0*fem),
                             width: double.infinity,
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -226,7 +226,7 @@ class Scene extends StatelessWidget {
                                     fontSize: 16*ffem,
                                     fontWeight: FontWeight.w400,
                                     height: 1.2125*ffem/fem,
-                                    color: Color(0xffffffff),
+                                    color: Colors.black,//Color(0xffffffff),
                                   ),
                                 ),
                               ],
@@ -237,7 +237,7 @@ class Scene extends StatelessWidget {
                           ),
                           Container(
                             // frame39Npo (67:929)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 98*fem, 0*fem),
+                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 34*fem, 0*fem),
                             width: double.infinity,
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -254,13 +254,13 @@ class Scene extends StatelessWidget {
                                 ),
                                 Text(
                                   // pedidosendopreparadodVq (42:1049)
-                                  'Pedido sendo preparado ',
+                                  'Pedido sendo preparado - 17:07',
                                   style: SafeGoogleFont (
                                     'Inter',
                                     fontSize: 16*ffem,
                                     fontWeight: FontWeight.w400,
                                     height: 1.2125*ffem/fem,
-                                    color: Color(0xffffffff),
+                                    color: Colors.black,//Color(0xffffffff),
                                   ),
                                 ),
                               ],
@@ -271,7 +271,7 @@ class Scene extends StatelessWidget {
                           ),
                           Container(
                             // frame409DH (67:930)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 122*fem, 0*fem),
+                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 54*fem, 0*fem),
                             width: double.infinity,
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -288,13 +288,13 @@ class Scene extends StatelessWidget {
                                 ),
                                 Text(
                                   // pedidosendoenviadoo2w (42:1050)
-                                  'Pedido sendo enviado',
+                                  'Pedido sendo enviado - 17:47',
                                   style: SafeGoogleFont (
                                     'Inter',
                                     fontSize: 16*ffem,
                                     fontWeight: FontWeight.w400,
                                     height: 1.2125*ffem/fem,
-                                    color: Color(0xffffffff),
+                                    color: Colors.black, //Color(0xffffffff),
                                   ),
                                 ),
                               ],
@@ -305,7 +305,7 @@ class Scene extends StatelessWidget {
                           ),
                           Container(
                             // frame4185D (67:931)
-                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 166*fem, 0*fem),
+                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 100*fem, 0*fem),
                             width: double.infinity,
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -322,13 +322,13 @@ class Scene extends StatelessWidget {
                                 ),
                                 Text(
                                   // pedidorecebidoP19 (42:1051)
-                                  'Pedido recebido',
+                                  'Pedido recebido - 17:53',
                                   style: SafeGoogleFont (
                                     'Inter',
                                     fontSize: 16*ffem,
                                     fontWeight: FontWeight.w400,
                                     height: 1.2125*ffem/fem,
-                                    color: Color(0xffffffff),
+                                    color: Colors.black,//Color(0xffffffff),
                                   ),
                                 ),
                               ],
@@ -340,54 +340,54 @@ class Scene extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                // botesnavegaovFy (42:1025)
-                padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
-                width: double.infinity,
-                decoration: BoxDecoration (
-                  color: Color(0x7f000000),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      // polygon1dRH (I42:1025;9:51)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
-                      width: 16*fem,
-                      height: 20*fem,
-                      child: Image.asset(
-                        'assets/page-1/images/polygon-1-bhZ.png',
-                        width: 16*fem,
-                        height: 20*fem,
-                      ),
-                    ),
-                    Container(
-                      // ellipse3wwm (I42:1025;10:489)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
-                      width: 18*fem,
-                      height: 18*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(9*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                        color: Color(0x00d9d9d9),
-                      ),
-                    ),
-                    Container(
-                      // rectangle7s4j (I42:1025;9:49)
-                      width: 18*fem,
-                      height: 18*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(2*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   // botesnavegaovFy (42:1025)
+              //   padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
+              //   width: double.infinity,
+              //   decoration: BoxDecoration (
+              //     color: Color(0x7f000000),
+              //   ),
+              //   child: Row(
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       Container(
+              //         // polygon1dRH (I42:1025;9:51)
+              //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
+              //         width: 16*fem,
+              //         height: 20*fem,
+              //         child: Image.asset(
+              //           'assets/page-1/images/polygon-1-bhZ.png',
+              //           width: 16*fem,
+              //           height: 20*fem,
+              //         ),
+              //       ),
+              //       Container(
+              //         // ellipse3wwm (I42:1025;10:489)
+              //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
+              //         width: 18*fem,
+              //         height: 18*fem,
+              //         decoration: BoxDecoration (
+              //           borderRadius: BorderRadius.circular(9*fem),
+              //           border: Border.all(color: Color(0xccffffff)),
+              //           color: Color(0x00d9d9d9),
+              //         ),
+              //       ),
+              //       Container(
+              //         // rectangle7s4j (I42:1025;9:49)
+              //         width: 18*fem,
+              //         height: 18*fem,
+              //         decoration: BoxDecoration (
+              //           borderRadius: BorderRadius.circular(2*fem),
+              //           border: Border.all(color: Color(0xccffffff)),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),
       ),
-          );
+    );
   }
 }
