@@ -15,7 +15,7 @@ class Scene extends StatelessWidget {
       child: Container(
         // categoriasoPD (9:6)
         width: double.infinity,
-        height: 800*fem,
+        height: 900*fem,
         decoration: BoxDecoration (
           color: Color(0x33ffd700),
         ),
@@ -129,7 +129,7 @@ class Scene extends StatelessWidget {
                           'Restaurante',
                           style: SafeGoogleFont (
                             'Inter',
-                            fontSize: 26*ffem,
+                            fontSize: 25*ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2125*ffem/fem,
                             color: Color(0xffffffff),
@@ -144,7 +144,7 @@ class Scene extends StatelessWidget {
                 // autoscroll4to (64:8893)
                 margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 109.96*fem),
                 width: double.infinity,
-                height: 525.04*fem,
+                height: 550.04*fem,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -595,54 +595,54 @@ class Scene extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                // botesnavegaoDCb (10:22)
-                padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
-                width: double.infinity,
-                decoration: BoxDecoration (
-                  color: Color(0x7f000000),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      // polygon1jAw (9:51)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
-                      width: 16*fem,
-                      height: 20*fem,
-                      child: Image.asset(
-                        'assets/page-1/images/polygon-1.png',
-                        width: 16*fem,
-                        height: 20*fem,
-                      ),
-                    ),
-                    Container(
-                      // ellipse3rWT (10:489)
-                      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
-                      width: 18*fem,
-                      height: 18*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(9*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                        color: Color(0x00d9d9d9),
-                      ),
-                    ),
-                    Container(
-                      // rectangle7yb5 (9:49)
-                      width: 18*fem,
-                      height: 18*fem,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(2*fem),
-                        border: Border.all(color: Color(0xccffffff)),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   // botesnavegaoDCb (10:22)
+              //   padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
+              //   width: double.infinity,
+              //   decoration: BoxDecoration (
+              //     color: Color(0x7f000000),
+              //   ),
+              //   child: Row(
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       Container(
+              //         // polygon1jAw (9:51)
+              //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
+              //         width: 16*fem,
+              //         height: 20*fem,
+              //         child: Image.asset(
+              //           'assets/page-1/images/polygon-1.png',
+              //           width: 16*fem,
+              //           height: 20*fem,
+              //         ),
+              //       ),
+              //       Container(
+              //         // ellipse3rWT (10:489)
+              //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
+              //         width: 18*fem,
+              //         height: 18*fem,
+              //         decoration: BoxDecoration (
+              //           borderRadius: BorderRadius.circular(9*fem),
+              //           border: Border.all(color: Color(0xccffffff)),
+              //           color: Color(0x00d9d9d9),
+              //         ),
+              //       ),
+              //       Container(
+              //         // rectangle7yb5 (9:49)
+              //         width: 18*fem,
+              //         height: 18*fem,
+              //         decoration: BoxDecoration (
+              //           borderRadius: BorderRadius.circular(2*fem),
+              //           border: Border.all(color: Color(0xccffffff)),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),
       ),
-          );
+    );
   }
 }
