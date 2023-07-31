@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:flutter/gestures.dart';
+// import 'dart:ui';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 
 class Scene extends StatelessWidget {
@@ -15,7 +15,7 @@ class Scene extends StatelessWidget {
       child: Container(
         // pratop4P (63:919)
         width: double.infinity,
-        height: 800*fem,
+        height: 900*fem,
         decoration: BoxDecoration (
           color: Color(0x33ffd700),
         ),
@@ -212,7 +212,7 @@ class Scene extends StatelessWidget {
                                                     ),
                                                     Container(
                                                       // baconqueijomussarelatomateorga (10:892)
-                                                      margin: EdgeInsets.fromLTRB(1.2*fem, 0*fem, 0*fem, 22*fem),
+                                                      margin: EdgeInsets.fromLTRB(1.2*fem, 0*fem, 0*fem, 19*fem),
                                                       constraints: BoxConstraints (
                                                         maxWidth: 165*fem,
                                                       ),
@@ -246,7 +246,7 @@ class Scene extends StatelessWidget {
                                               ),
                                               Container(
                                                 // receitasdepizzasiciliana2730x4 (10:895)
-                                                width: 168*fem,
+                                                width: 166*fem,
                                                 height: 171*fem,
                                                 child: Image.asset(
                                                   'assets/page-1/images/receitas-de-pizza-siciliana-2-730x449-1.png',
@@ -330,7 +330,7 @@ class Scene extends StatelessWidget {
                                                       children: [
                                                         Container(
                                                           // line91v7 (I63:502;9:557)
-                                                          margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 27.5*fem, 0*fem),
+                                                          margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 23.5*fem, 0*fem),
                                                           width: 0.5*fem,
                                                           height: 30*fem,
                                                           decoration: BoxDecoration (
@@ -342,7 +342,7 @@ class Scene extends StatelessWidget {
                                                           '+',
                                                           style: SafeGoogleFont (
                                                             'Inter',
-                                                            fontSize: 25*ffem,
+                                                            fontSize: 22*ffem,
                                                             fontWeight: FontWeight.w400,
                                                             height: 1.2125*ffem/fem,
                                                             color: Color(0xff000000),
@@ -429,12 +429,12 @@ class Scene extends StatelessWidget {
                                                         children: [
                                                           Container(
                                                             // bQT (9:542)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 8.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             child: Text(
                                                               '-',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 12*ffem,
+                                                                fontSize: 16*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -443,7 +443,7 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // line7XJ7 (9:541)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 19.5*fem, 7.5*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             width: 0.5*fem,
                                                             height: 17*fem,
                                                             decoration: BoxDecoration (
@@ -452,12 +452,12 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // 3XM (9:545)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 3.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             child: Text(
                                                               '0',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 8*ffem,
+                                                                fontSize: 12*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -466,7 +466,7 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // line6N3q (9:540)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 19.5*fem, 7.5*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             width: 0.5*fem,
                                                             height: 17*fem,
                                                             decoration: BoxDecoration (
@@ -475,12 +475,12 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // u3m (9:543)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 8.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 20*fem, 0*fem),
                                                             child: Text(
                                                               '+',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 12*ffem,
+                                                                fontSize: 16*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -551,12 +551,12 @@ class Scene extends StatelessWidget {
                                                         children: [
                                                           Container(
                                                             // HiX (64:10149)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 8.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             child: Text(
                                                               '-',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 12*ffem,
+                                                                fontSize: 14*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -565,7 +565,7 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // line7cko (64:10150)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 19.5*fem, 7.5*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             width: 0.5*fem,
                                                             height: 17*fem,
                                                             decoration: BoxDecoration (
@@ -574,12 +574,12 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // kMD (64:10151)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 3.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             child: Text(
                                                               '0',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 8*ffem,
+                                                                fontSize: 12*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -588,7 +588,7 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // line6HM9 (64:10152)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 19.5*fem, 7.5*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             width: 0.5*fem,
                                                             height: 17*fem,
                                                             decoration: BoxDecoration (
@@ -597,12 +597,12 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // CU7 (64:10153)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 8.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 21*fem, 0*fem),
                                                             child: Text(
                                                               '+',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 12*ffem,
+                                                                fontSize: 14*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -674,12 +674,12 @@ class Scene extends StatelessWidget {
                                                         children: [
                                                           Container(
                                                             // 9gB (64:10234)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 8.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             child: Text(
                                                               '-',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 12*ffem,
+                                                                fontSize: 14*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -688,7 +688,7 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // line7t7y (64:10235)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 19.5*fem, 7.5*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             width: 0.5*fem,
                                                             height: 17*fem,
                                                             decoration: BoxDecoration (
@@ -697,12 +697,12 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // 2EB (64:10236)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 3.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             child: Text(
                                                               '0',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 8*ffem,
+                                                                fontSize: 12*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -711,7 +711,7 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // line6MnF (64:10237)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 19.5*fem, 7.5*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             width: 0.5*fem,
                                                             height: 17*fem,
                                                             decoration: BoxDecoration (
@@ -720,12 +720,12 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // tnB (64:10238)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 8.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 21*fem, 0*fem),
                                                             child: Text(
                                                               '+',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 12*ffem,
+                                                                fontSize: 14*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -793,12 +793,12 @@ class Scene extends StatelessWidget {
                                                         children: [
                                                           Container(
                                                             // Saj (64:10402)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 8.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             child: Text(
                                                               '-',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 12*ffem,
+                                                                fontSize: 14*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -807,7 +807,7 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // line7md1 (64:10403)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 19.5*fem, 7.5*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             width: 0.5*fem,
                                                             height: 17*fem,
                                                             decoration: BoxDecoration (
@@ -816,12 +816,12 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // 7B5 (64:10404)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 3.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             child: Text(
                                                               '0',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 8*ffem,
+                                                                fontSize: 12*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -830,7 +830,7 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // line6dv7 (64:10405)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 19.5*fem, 7.5*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 7.5*fem),
                                                             width: 0.5*fem,
                                                             height: 17*fem,
                                                             decoration: BoxDecoration (
@@ -839,12 +839,12 @@ class Scene extends StatelessWidget {
                                                           ),
                                                           Container(
                                                             // yyy (64:10406)
-                                                            margin: EdgeInsets.fromLTRB(0*fem, 8.5*fem, 20*fem, 0*fem),
+                                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 21*fem, 7.5*fem),
                                                             child: Text(
                                                               '+',
                                                               style: SafeGoogleFont (
                                                                 'Inter',
-                                                                fontSize: 12*ffem,
+                                                                fontSize: 14*ffem,
                                                                 fontWeight: FontWeight.w400,
                                                                 height: 1.3*ffem/fem,
                                                                 color: Color(0xff000000),
@@ -901,18 +901,21 @@ class Scene extends StatelessWidget {
                             ),
                             Container(
                               // frame16vXq (64:5013)
-                              width: double.infinity,
-                              height: 174*fem,
+                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 40*fem, 0*fem),
+                              width: 360*fem,//double.infinity,
+                              height: 164*fem,
                               decoration: BoxDecoration (
                                 border: Border.all(color: Color(0x7f000000)),
                                 color: Color(0xffebebeb),
                               ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
+
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                // crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
                                   Container(
                                     // frame15q91 (64:5014)
-                                    padding: EdgeInsets.fromLTRB(0*fem, 8*fem, 0*fem, 11*fem),
+                                    padding: EdgeInsets.fromLTRB(0*fem, 8*fem, 0*fem, 0*fem),
                                     height: double.infinity,
                                     decoration: BoxDecoration (
                                       border: Border.all(color: Color(0x7f000000)),
@@ -922,7 +925,7 @@ class Scene extends StatelessWidget {
                                       children: [
                                         Container(
                                           // polentaASB (64:5015)
-                                          margin: EdgeInsets.fromLTRB(10*fem, 0*fem, 0*fem, 7*fem),
+                                          margin: EdgeInsets.fromLTRB(18*fem, 0*fem, 0*fem, 7*fem),
                                           child: Text(
                                             'Polenta',
                                             style: SafeGoogleFont (
@@ -936,7 +939,7 @@ class Scene extends StatelessWidget {
                                         ),
                                         Container(
                                           // polentafrita1g9d (64:5016)
-                                          margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 8*fem),
+                                          margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 4*fem),
                                           width: 100*fem,
                                           height: 100*fem,
                                           child: Image.asset(
@@ -946,7 +949,7 @@ class Scene extends StatelessWidget {
                                         ),
                                         Container(
                                           // r500CNs (64:5017)
-                                          margin: EdgeInsets.fromLTRB(10*fem, 0*fem, 0*fem, 0*fem),
+                                          margin: EdgeInsets.fromLTRB(18*fem, 0*fem, 0*fem, 0*fem),
                                           child: Text(
                                             'R\$ 5,00',
                                             style: SafeGoogleFont (
@@ -967,7 +970,7 @@ class Scene extends StatelessWidget {
                                     height: double.infinity,
                                     child: Container(
                                       // frame16ULP (64:6030)
-                                      padding: EdgeInsets.fromLTRB(0*fem, 8*fem, 0*fem, 11*fem),
+                                      padding: EdgeInsets.fromLTRB(0*fem, 8*fem, 0*fem, 0*fem),
                                       width: double.infinity,
                                       height: double.infinity,
                                       decoration: BoxDecoration (
@@ -978,7 +981,7 @@ class Scene extends StatelessWidget {
                                         children: [
                                           Container(
                                             // polentaCXH (64:6032)
-                                            margin: EdgeInsets.fromLTRB(10*fem, 0*fem, 0*fem, 7*fem),
+                                            margin: EdgeInsets.fromLTRB(18*fem, 0*fem, 0*fem, 7*fem),
                                             child: Text(
                                               'Polenta',
                                               style: SafeGoogleFont (
@@ -992,7 +995,7 @@ class Scene extends StatelessWidget {
                                           ),
                                           Container(
                                             // polentafrita18A3 (64:6033)
-                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 8*fem),
+                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 4*fem),
                                             width: 100*fem,
                                             height: 100*fem,
                                             child: Image.asset(
@@ -1002,7 +1005,7 @@ class Scene extends StatelessWidget {
                                           ),
                                           Container(
                                             // r500r63 (64:6035)
-                                            margin: EdgeInsets.fromLTRB(10*fem, 0*fem, 0*fem, 0*fem),
+                                            margin: EdgeInsets.fromLTRB(18*fem, 0*fem, 0*fem, 0*fem),
                                             child: Text(
                                               'R\$ 5,00',
                                               style: SafeGoogleFont (
@@ -1024,7 +1027,7 @@ class Scene extends StatelessWidget {
                                     height: double.infinity,
                                     child: Container(
                                       // frame178ZM (64:6051)
-                                      padding: EdgeInsets.fromLTRB(0*fem, 8*fem, 0*fem, 11*fem),
+                                      padding: EdgeInsets.fromLTRB(0*fem, 8*fem, 0*fem, 0*fem),
                                       width: double.infinity,
                                       height: double.infinity,
                                       decoration: BoxDecoration (
@@ -1035,7 +1038,7 @@ class Scene extends StatelessWidget {
                                         children: [
                                           Container(
                                             // polentafZH (64:6053)
-                                            margin: EdgeInsets.fromLTRB(10*fem, 0*fem, 0*fem, 7*fem),
+                                            margin: EdgeInsets.fromLTRB(18*fem, 0*fem, 0*fem, 7*fem),
                                             child: Text(
                                               'Polenta',
                                               style: SafeGoogleFont (
@@ -1049,7 +1052,7 @@ class Scene extends StatelessWidget {
                                           ),
                                           Container(
                                             // polentafrita1Q15 (64:6054)
-                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 8*fem),
+                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 4*fem),
                                             width: 100*fem,
                                             height: 100*fem,
                                             child: Image.asset(
@@ -1059,7 +1062,7 @@ class Scene extends StatelessWidget {
                                           ),
                                           Container(
                                             // r5007w5 (64:6056)
-                                            margin: EdgeInsets.fromLTRB(10*fem, 0*fem, 0*fem, 0*fem),
+                                            margin: EdgeInsets.fromLTRB(18*fem, 0*fem, 0*fem, 0*fem),
                                             child: Text(
                                               'R\$ 5,00',
                                               style: SafeGoogleFont (
@@ -1081,7 +1084,7 @@ class Scene extends StatelessWidget {
                                     height: double.infinity,
                                     child: Container(
                                       // frame18PNo (64:6079)
-                                      padding: EdgeInsets.fromLTRB(0*fem, 8*fem, 0*fem, 11*fem),
+                                      padding: EdgeInsets.fromLTRB(0*fem, 8*fem, 0*fem, 0*fem),
                                       width: double.infinity,
                                       height: double.infinity,
                                       decoration: BoxDecoration (
@@ -1092,7 +1095,7 @@ class Scene extends StatelessWidget {
                                         children: [
                                           Container(
                                             // polentaWTR (64:6081)
-                                            margin: EdgeInsets.fromLTRB(10*fem, 0*fem, 0*fem, 7*fem),
+                                            margin: EdgeInsets.fromLTRB(18*fem, 0*fem, 0*fem, 7*fem),
                                             child: Text(
                                               'Polenta',
                                               style: SafeGoogleFont (
@@ -1106,7 +1109,7 @@ class Scene extends StatelessWidget {
                                           ),
                                           Container(
                                             // polentafrita1dnw (64:6082)
-                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 8*fem),
+                                            margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 4*fem),
                                             width: 100*fem,
                                             height: 100*fem,
                                             child: Image.asset(
@@ -1116,7 +1119,7 @@ class Scene extends StatelessWidget {
                                           ),
                                           Container(
                                             // r500AH5 (64:6084)
-                                            margin: EdgeInsets.fromLTRB(10*fem, 0*fem, 0*fem, 0*fem),
+                                            margin: EdgeInsets.fromLTRB(18*fem, 0*fem, 0*fem, 0*fem),
                                             child: Text(
                                               'R\$ 5,00',
                                               style: SafeGoogleFont (
@@ -1139,55 +1142,55 @@ class Scene extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      // botesnavegaogWK (9:652)
-                      left: 0*fem,
-                      top: 634.1793212891*fem,
-                      child: Container(
-                        padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
-                        width: 360*fem,
-                        height: 40*fem,
-                        decoration: BoxDecoration (
-                          color: Color(0x7f000000),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // polygon1AgP (I9:652;9:51)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
-                              width: 16*fem,
-                              height: 20*fem,
-                              child: Image.asset(
-                                'assets/page-1/images/polygon-1-5xj.png',
-                                width: 16*fem,
-                                height: 20*fem,
-                              ),
-                            ),
-                            Container(
-                              // ellipse34mm (I9:652;10:489)
-                              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
-                              width: 18*fem,
-                              height: 18*fem,
-                              decoration: BoxDecoration (
-                                borderRadius: BorderRadius.circular(9*fem),
-                                border: Border.all(color: Color(0xccffffff)),
-                                color: Color(0x00d9d9d9),
-                              ),
-                            ),
-                            Container(
-                              // rectangle7nBy (I9:652;9:49)
-                              width: 18*fem,
-                              height: 18*fem,
-                              decoration: BoxDecoration (
-                                borderRadius: BorderRadius.circular(2*fem),
-                                border: Border.all(color: Color(0xccffffff)),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    // Positioned(
+                    //   // botesnavegaogWK (9:652)
+                    //   left: 0*fem,
+                    //   top: 634.1793212891*fem,
+                    //   child: Container(
+                    //     padding: EdgeInsets.fromLTRB(75*fem, 10*fem, 76*fem, 10*fem),
+                    //     width: 360*fem,
+                    //     height: 40*fem,
+                    //     decoration: BoxDecoration (
+                    //       color: Color(0x7f000000),
+                    //     ),
+                    //     child: Row(
+                    //       crossAxisAlignment: CrossAxisAlignment.center,
+                    //       children: [
+                    //         Container(
+                    //           // polygon1AgP (I9:652;9:51)
+                    //           margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 80*fem, 0*fem),
+                    //           width: 16*fem,
+                    //           height: 20*fem,
+                    //           child: Image.asset(
+                    //             'assets/page-1/images/polygon-1-5xj.png',
+                    //             width: 16*fem,
+                    //             height: 20*fem,
+                    //           ),
+                    //         ),
+                    //         Container(
+                    //           // ellipse34mm (I9:652;10:489)
+                    //           margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 77*fem, 0*fem),
+                    //           width: 18*fem,
+                    //           height: 18*fem,
+                    //           decoration: BoxDecoration (
+                    //             borderRadius: BorderRadius.circular(9*fem),
+                    //             border: Border.all(color: Color(0xccffffff)),
+                    //             color: Color(0x00d9d9d9),
+                    //           ),
+                    //         ),
+                    //         Container(
+                    //           // rectangle7nBy (I9:652;9:49)
+                    //           width: 18*fem,
+                    //           height: 18*fem,
+                    //           decoration: BoxDecoration (
+                    //             borderRadius: BorderRadius.circular(2*fem),
+                    //             border: Border.all(color: Color(0xccffffff)),
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
