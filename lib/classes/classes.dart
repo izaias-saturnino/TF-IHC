@@ -29,15 +29,15 @@ class Carrinho { // ou comparacao
   //      'id': 1,
   //      'item': Product,
   //      'quantidade': 1,
-  //      'acompanhamentos': {'item': Product, 'quantidade': 1},
-  //      'adicionais': {'item': Product, 'quantidade': 1}
+  //      'acompanhamentos': {'id': 5, 'quantidade': 1},
+  //      'adicionais': {'id': 6, 'quantidade': 1}
   //  },
   //  {
   //      'id': 2,
   //      'item': Product,
   //      'quantidade': 1,
-  //      'acompanhamentos': {'item': Product, 'quantidade': 1},
-  //      'adicionais': {'item': Product, 'quantidade': 1}
+  //      'acompanhamentos': {'id': 3, 'quantidade': 1},
+  //      'adicionais': {'id': 4, 'quantidade': 1}
   //  }
   // }
   var itens = {};
