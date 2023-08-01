@@ -18,10 +18,28 @@ import 'package:myapp/page-1/recuperacao-de-senha.dart';
 import 'package:myapp/page-1/recuperacao-de-senha-rUX.dart';
 import 'package:myapp/page-1/nova-senha.dart';
 import 'package:myapp/page-1/status.dart';
+import 'package:myapp/classes/classes.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  ItemList allProducts = ItemList();
+  ItemList cart = ItemList();
+
+  // onPressed(): (){
+  //   setState(() {
+  //      cart.removeFromList(p)
+  //   });
+  // }
+
+  //children: displayCategories(allProducts.categories()),
+
 	@override
 	Widget build(BuildContext context) {
 		return MaterialApp(
