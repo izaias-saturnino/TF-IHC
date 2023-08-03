@@ -7,9 +7,8 @@ class Product {
   List<String> ingredientList;
   double price;
   String category;
-  List<Product> acompanhamentosPossiveis;
 
-  Product(this.id, this.name, this.imgUrl, this.ingredientList, this.price, this.category, this.acompanhamentosPossiveis);
+  Product(this.id, this.name, this.imgUrl, this.ingredientList, this.price, this.category);
 
   Widget displayViewItem(){
     Widget w = Text(name);
@@ -19,68 +18,81 @@ class Product {
   }
 }
 
-class Acompanhamento {
-  String name;
-  List<String> ingredientList;
-  double price;
-
-  Acompanhamento(this.name, this.ingredientList, this.price);
-}
-
-class Adicional {
-  String name;
-  double price;
-
-  Adicional(this.name, this.price);
-}
-
 class ItemList { // carrinho, comparacao ou cardápio
-  // [
+  // var itemsExample = [
   //  {
-  //      'product': Product,
+  //      'product': id,
   //      'quantidade': 1,
   //      'acompanhamentos': {'id': 5, 'quantidade': 1},
   //      'adicionais': {'id': 6, 'quantidade': 1}
   //  },
   //  {
-  //      'product': Product,
+  //      'product': id,
   //      'quantidade': 1,
   //      'acompanhamentos': {'id': 3, 'quantidade': 1},
   //      'adicionais': {'id': 4, 'quantidade': 1}
   //  }
-  // ]
+  // ];
   var items = [];
 
-  void addToList(Product p){
-    items.add(p);
+  void addToList(int productId){
+    items.add({"product": productId, "quantidade": 1, "acompanhamentos": {}, "adicionais": {}});
   }
 
-  void updateList(Product oldP, Product newP){
-    items.remove(oldP);
-    items.add(newP);
+  void updateList(int productId, int? quantidade, Map<dynamic, dynamic>? acompanhamentos, Map<dynamic, dynamic>? adicionais){
+    for(var item in items){
+      if(item["product"] == productId){
+        if(quantidade != null){
+          item["quantidade"] = quantidade;
+        }
+        if(acompanhamentos != null){
+          item["acompanhamentos"] = acompanhamentos;
+        }
+        if(adicionais != null){
+          item["adicionais"] = adicionais;
+        }
+      }
+    }
   }
 
-  void removeFromList(Product p){
-    items.remove(p);
+  void removeFromList(int productId){
+    for(var item in items){
+      if(item["product"] == productId){
+        items.remove(item);
+      }
+    }
   }
 
-  List<dynamic> filterByCategory(category){
+  Product? getProductById(int productId, List<Product> avaliableItems){
+    for(Product p in avaliableItems){
+      if(p.id == productId){
+        return p;
+      }
+    }
+    return null;
+  }
+
+  List<dynamic> filterByCategory(category, List<Product> avaliableItems){
     var filteredItems = [];
     for(var item in items){
-      if(item["product"].category == category){
-        filteredItems.add(item);
+      Product? p = getProductById(item["product"], avaliableItems);
+      if(p != null){
+        if(p.category == category){
+          filteredItems.add(item);
+        }
       }
     }
     return filteredItems;
   }
 
-  List<dynamic> categories(){
-    var categories = [];
+  List<String> getCategories(List<Product> avaliableItems){
+    List<String> categories = [];
     for(var item in items){
-      var currentItemCategory = item["product"].category;
-      var currentItemImg = item["product"].imgUrl;
-      if(!categories.contains(currentItemCategory)){
-        categories.add({currentItemCategory, currentItemImg});
+      Product? p = getProductById(item["product"], avaliableItems);
+      if(p != null){
+        if(!categories.contains(p.category)){
+          categories.add(p.category);
+        }
       }
     }
     return categories;
