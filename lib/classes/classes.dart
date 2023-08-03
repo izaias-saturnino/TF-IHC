@@ -127,14 +127,26 @@ class ItemList { // carrinho, comparacao ou cardápio
     return categories;
   }
 
-  List<Widget> displayNameAndImg(List<dynamic> nameAndImg){
-    List<Widget> nameAndImgWidgetList = [];
-    for(var nameAndImg in nameAndImg){
-      nameAndImgWidgetList.add(Text(nameAndImg[0]));
+  List<Widget> displayCart(){
+    List<Widget> comparisonWidgetList = [];
+    for(var item in items){
+      Product p = item["product"];
+      comparisonWidgetList.add(Text(p.name));
       // TODO
-      //do something with url
+      //do something with other properties
     }
-    return nameAndImgWidgetList;
+    return comparisonWidgetList;
+  }
+
+  List<Widget> displayCategories(){
+    List<Widget> comparisonWidgetList = [];
+    for(var item in items){
+      Product p = item["product"];
+      comparisonWidgetList.add(Text(p.name));
+      // TODO
+      //do something with other properties
+    }
+    return comparisonWidgetList;
   }
 
   List<Widget> displayComparison(){
