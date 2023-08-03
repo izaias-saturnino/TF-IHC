@@ -1,5 +1,19 @@
 import 'package:flutter/material.dart';
 
+class User {
+  int id;
+  String name;
+  String email;
+  String password;
+  String access;
+
+  User(this.id, this.name, this.email, this.password, this.access);
+
+  void changePassword(String password){
+    this.password = password;
+  }
+}
+
 class Product {
   int id;
   String name;
@@ -21,13 +35,13 @@ class Product {
 class ItemList { // carrinho, comparacao ou cardápio
   // var itemsExample = [
   //  {
-  //      'product': id,
+  //      'product': 2,
   //      'quantidade': 1,
   //      'acompanhamentos': {'id': 5, 'quantidade': 1},
   //      'adicionais': {'id': 6, 'quantidade': 1}
   //  },
   //  {
-  //      'product': id,
+  //      'product': 3,
   //      'quantidade': 1,
   //      'acompanhamentos': {'id': 3, 'quantidade': 1},
   //      'adicionais': {'id': 4, 'quantidade': 1}
@@ -72,12 +86,23 @@ class ItemList { // carrinho, comparacao ou cardápio
     return null;
   }
 
-  List<dynamic> filterByCategory(category, List<Product> avaliableItems){
+  List<dynamic> filter(String? name, String? category, List<String>? ingredientList, List<Product> avaliableItems){
     var filteredItems = [];
     for(var item in items){
       Product? p = getProductById(item["product"], avaliableItems);
       if(p != null){
+        if(p.name == name){
+          filteredItems.add(item);
+        }
         if(p.category == category){
+          filteredItems.add(item);
+        }
+        if(ingredientList != null){
+          for(String ingredient in ingredientList){
+            if(!p.ingredientList.contains(ingredient)){
+              break;
+            }
+          }
           filteredItems.add(item);
         }
       }
