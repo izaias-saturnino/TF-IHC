@@ -91,11 +91,15 @@ class ItemList { // carrinho, comparacao ou cardápio
     for(var item in items){
       Product? p = getProductById(item["product"], avaliableItems);
       if(p != null){
-        if(p.name == name){
-          filteredItems.add(item);
+        if(name != null){
+          if(p.name == name){
+            filteredItems.add(item);
+          }
         }
-        if(p.category == category){
-          filteredItems.add(item);
+        if(category != null){
+          if(p.category == category){
+            filteredItems.add(item);
+          }
         }
         if(ingredientList != null){
           for(String ingredient in ingredientList){
