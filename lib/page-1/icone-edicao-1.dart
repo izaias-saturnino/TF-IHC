@@ -17,7 +17,7 @@ class Scene extends StatelessWidget {
         width: double.infinity,
         height: 25*fem,
         child: Image.asset(
-          'assets/page-1/images/icone-edicao-1.png',
+          'assets/page-1/images/icone-edicao.png',
           fit: BoxFit.cover,
         ),
       ),

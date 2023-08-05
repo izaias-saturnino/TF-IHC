@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/page-1/recuperacao-de-senha-rUX.dart';
 // import 'package:flutter/gestures.dart';
 // import 'dart:ui';
 // import 'package:google_fonts/google_fonts.dart';
@@ -8,14 +7,10 @@ import 'package:myapp/page-1/prato.dart';
 import 'package:myapp/page-1/comparacao.dart';
 import 'package:myapp/page-1/carrinho.dart';
 import 'package:myapp/page-1/categorias.dart';
-// import 'package:myapp/page-1/botao-carrinho.dart';
-import 'package:myapp/page-1/prato-2B1.dart';
-// import 'package:myapp/page-1/icone-edicao-1.dart';
-// import 'package:myapp/page-1/botoes-navegacao.dart';
 import 'package:myapp/page-1/cardapio.dart';
 import 'package:myapp/page-1/login.dart';
 import 'package:myapp/page-1/recuperacao-de-senha.dart';
-import 'package:myapp/page-1/recuperacao-de-senha-rUX.dart';
+import 'package:myapp/page-1/recuperacao-de-senha-confirmacao.dart';
 import 'package:myapp/page-1/nova-senha.dart';
 import 'package:myapp/page-1/status.dart';
 import 'package:myapp/classes/classes.dart';
@@ -43,18 +38,17 @@ class _MyAppState extends State<MyApp> {
 	@override
 	Widget build(BuildContext context) {
 		return MaterialApp(
-			initialRoute: '/categorias',
+			initialRoute: '/prato',
 			routes: {
 				'/nova-senha': (context) => NovaSenha(),
 				'/prato': (context) => Prato(),
 				'/comparacao': (context) => Comparacao(),
 				'/carrinho': (context) => Carrinho(),
 				'/categorias': (context) => Categorias(),
-				'/prato-2': (context) => Prato2(),
 				'/cardapio': (context) => Cardapio(),
 				'/login': (context) => Login(),
 				'/recuperacao-senha': (context) => RecuperacaoSenha(),
-				'/recuperacao-senha-2': (context) => RecuperacaoSenha2(),
+				'/recuperacao-senha-confirmacao': (context) => RecuperacaoSenhaConfirmacao(),
 				'/status': (context) => StatusPedido(),
 			},
 			title: 'Flutter',
