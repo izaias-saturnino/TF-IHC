@@ -4,23 +4,28 @@ import 'package:myapp/components/input.dart';
 import 'package:myapp/components/page_structure.dart';
 
 class RecuperacaoSenha extends StatelessWidget {
+  const RecuperacaoSenha({super.key});
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
+
     return PageStructure(
-      fem: fem,
-      ffem: ffem,
-      height: 800,
       pageName: 'Recuperar senha',
       children: [
-        Input(fem: fem, ffem: ffem, inputTitle: 'E-mail'),
-        Button(
-            fem: fem,
-            ffem: ffem,
-            text: 'Enviar',
-            route: '/recuperacao-senha-confirmacao')
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 16.0 * fem),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 16.0 * fem),
+              const Input(inputTitle: 'E-mail'),
+              SizedBox(height: 391.0 * fem),
+              const Button(text: 'Enviar', route: '/recuperacao-senha-confirmacao'),
+            ],
+          ),
+        ),
       ],
     );
   }

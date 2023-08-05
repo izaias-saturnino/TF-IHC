@@ -4,15 +4,14 @@ import 'package:myapp/utils.dart';
 class ItemFooter extends StatelessWidget {
   const ItemFooter({
     super.key,
-    required this.fem,
-    required this.ffem,
   });
-
-  final double fem;
-  final double ffem;
 
   @override
   Widget build(BuildContext context) {
+    double baseWidth = 360;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double ffem = fem * 0.97;
+
     return Container(
       margin: EdgeInsets.fromLTRB(11.55*fem, 0*fem, 11.45*fem, 0*fem),
       width: double.infinity,

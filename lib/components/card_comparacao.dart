@@ -4,16 +4,12 @@ import 'package:myapp/utils.dart';
 class CardComparacao extends StatelessWidget {
   const CardComparacao({
     super.key,
-    required this.fem,
-    required this.ffem,
     required this.nome,
     required this.ingredientes,
     required this.preco,
     required this.pathImg
   });
 
-  final double fem;
-  final double ffem;
   final String nome;
   final String ingredientes;
   final String preco;
@@ -21,8 +17,11 @@ class CardComparacao extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double baseWidth = 360;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double ffem = fem * 0.97;
+
     return Container(
-      margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 10*fem),
       width: double.infinity,
       height: 235*fem,
       child: Stack(

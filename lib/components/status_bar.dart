@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class StatusBar extends StatelessWidget {
   const StatusBar({
     super.key,
-    required this.fem,
     required this.filled,
     this.roundTopLeft = 0.0,
     this.roundTopRight = 0.0,
@@ -11,7 +10,6 @@ class StatusBar extends StatelessWidget {
     this.roundBottomLeft = 0.0
   });
 
-  final double fem;
   final bool filled;
   final double roundTopLeft;
   final double roundTopRight;
@@ -20,6 +18,9 @@ class StatusBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double baseWidth = 360;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+
     return Container(
       // margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 6 * fem, 0 * fem),
       width: 74.51 * fem,

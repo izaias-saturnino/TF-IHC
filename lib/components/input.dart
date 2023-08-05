@@ -4,38 +4,33 @@ import 'package:myapp/utils.dart';
 class Input extends StatelessWidget {
   const Input({
     super.key,
-    required this.fem,
-    required this.ffem,
     required this.inputTitle
   });
 
-  final double fem;
-  final double ffem;
   final String inputTitle;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
+    double baseWidth = 360;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double ffem = fem * 0.97;
+
+    return SizedBox(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            margin: EdgeInsets.fromLTRB(
-                0 * fem, 0 * fem, 0 * fem, 2 * fem),
-            child: Text(
-              inputTitle,
-              style: SafeGoogleFont('Inter',
-                  fontSize: 24 * ffem,
-                  fontWeight: FontWeight.w400,
-                  height: 1.2125 * ffem / fem,
-                  color: const Color(0xffffffff),
-                  decoration: TextDecoration.none),
-            ),
+          Text(
+            inputTitle,
+            style: SafeGoogleFont(
+              'Inter',
+              fontSize: 24 * ffem,
+              fontWeight: FontWeight.w400,
+              color: const Color(0xffffffff),
+              decoration: TextDecoration.none),
           ),
+          SizedBox(height: 4.0 * fem),
           Container(
-            width: double.infinity,
-            height: 40 * fem,
+            padding: EdgeInsets.symmetric(vertical: 20.0 * fem, horizontal: 0.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20 * fem),
               color: const Color(0xffffd700),

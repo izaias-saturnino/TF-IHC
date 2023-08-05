@@ -6,13 +6,13 @@ import 'package:myapp/utils.dart';
 class Navbar extends StatelessWidget {
   const Navbar({
     super.key,
-    required this.fem,
   });
-
-  final double fem;
 
   @override
   Widget build(BuildContext context) {
+    double baseWidth = 360;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+
     return Container(
       margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 10*fem),
       padding: EdgeInsets.fromLTRB(35*fem, 12*fem, 35*fem, 12*fem),
@@ -24,11 +24,11 @@ class Navbar extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          NavbarButton(fem: fem, icon: 'home', route: '/categorias'),
+          NavbarButton(icon: 'home', route: '/categorias'),
           SizedBox(width: 50*fem),
-          NavbarButton(fem: fem, icon: 'person', route: '/login'),
+          NavbarButton(icon: 'person', route: '/login'),
           SizedBox(width: 50*fem),
-          NavbarButton(fem: fem, icon: 'shopping_cart', route: '/carrinho'),
+          NavbarButton(icon: 'shopping_cart', route: '/carrinho'),
         ],
       ),
     );

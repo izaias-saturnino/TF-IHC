@@ -10,75 +10,62 @@ class Login extends StatelessWidget {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+
     return PageStructure(
-      fem: fem,
-      ffem: ffem,
-      height: 800,
       pageName: 'Login',
       children: [
+        SizedBox(height: 16.0 * fem),
         Container(
-          padding: EdgeInsets.fromLTRB(45 * fem, 0 * fem, 45 * fem, 0 * fem),
+          margin:
+          EdgeInsets.fromLTRB(10 * fem, 0 * fem, 10 * fem, 0 * fem),
+          width: 230 * fem,
+          height: 230 * fem,
+          decoration: BoxDecoration(
+            color: const Color(0xffb22222),
+            borderRadius: BorderRadius.circular(115 * fem),
+          ),
+          child: Center(
+            child: Text(
+              'Sua logo aqui',
+              style: SafeGoogleFont('Inter',
+                  fontSize: 32 * ffem,
+                  fontWeight: FontWeight.w400,
+                  height: 1.2125 * ffem / fem,
+                  color: const Color(0xffffffff),
+                  decoration: TextDecoration.none),
+            ),
+          ),
+        ),
+        SizedBox(height: 16.0 * fem),
+        Container(
           width: double.infinity,
+          padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Container(
-                margin:
-                    EdgeInsets.fromLTRB(10 * fem, 0 * fem, 10 * fem, 0 * fem),
-                width: 220 * fem,
-                //double.infinity,
-                height: 220 * fem,
-                decoration: BoxDecoration(
-                  color: const Color(0xffb22222),
-                  borderRadius: BorderRadius.circular(110 * fem),
-                ),
-                child: Center(
-                  child: Text(
-                    'Sua logo aqui',
-                    style: SafeGoogleFont('Inter',
-                        fontSize: 26 * ffem,
-                        fontWeight: FontWeight.w400,
-                        height: 1.2125 * ffem / fem,
-                        color: const Color(0xffffffff),
-                        decoration: TextDecoration.none),
-                  ),
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Input(fem: fem, ffem: ffem, inputTitle: 'Usuário'),
-                    SizedBox(
-                      height: 8 * fem,
-                    ),
-                    Input(fem: fem, ffem: ffem, inputTitle: 'Senha'),
-                    SizedBox(
-                      height: 8 * fem,
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/recuperacao-senha');
-                      },
-                      child: Text(
-                        'Esqueci minha senha',
-                        style: SafeGoogleFont('Inter',
-                            fontSize: 16 * ffem,
-                            fontWeight: FontWeight.w400,
-                            height: 1.2125 * ffem / fem,
-                            color: const Color(0xffffffff),
-                            decorationColor: const Color(0xffffffff),
-                            decoration: TextDecoration.none),
-                      ),
-                    ),
-                  ],
+              const Input(inputTitle: 'Usuário'),
+              SizedBox(height: 16 * fem),
+              const Input(inputTitle: 'Senha'),
+              SizedBox(height: 16 * fem),
+              const Button(text: 'Entrar', route: '/categorias'),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/recuperacao-senha');
+                },
+                child: Text(
+                  'Esqueci minha senha',
+                  style: SafeGoogleFont('Inter',
+                      fontSize: 16 * ffem,
+                      fontWeight: FontWeight.w400,
+                      height: 1.2125 * ffem / fem,
+                      color: const Color(0xffffffff),
+                      decorationColor: const Color(0xffffffff),
+                      decoration: TextDecoration.none),
                 ),
               ),
             ],
           ),
         ),
-        Button(fem: fem, ffem: ffem, text: 'Entrar', route: '/categorias'),
       ],
     );
   }

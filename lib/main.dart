@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
 	@override
 	Widget build(BuildContext context) {
 		return MaterialApp(
-			initialRoute: '/prato',
+			initialRoute: '/cardapio',
 			routes: {
 				'/nova-senha': (context) => NovaSenha(),
 				'/prato': (context) => Prato(),

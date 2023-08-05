@@ -5,21 +5,21 @@ import 'package:myapp/utils.dart';
 class Acompanhamento extends StatelessWidget {
   const Acompanhamento({
     super.key,
-    required this.fem,
-    required this.ffem,
     required this.nome,
     required this.pathImg,
     required this.preco
   });
 
-  final double fem;
-  final double ffem;
   final String nome;
   final String pathImg;
   final String preco;
 
   @override
   Widget build(BuildContext context) {
+    double baseWidth = 360;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double ffem = fem * 0.97;
+
     return Container(
       padding: EdgeInsets.fromLTRB(0*fem, 8*fem, 0*fem, 0*fem),
       height: double.infinity,

@@ -4,19 +4,19 @@ import 'package:myapp/utils.dart';
 class Adicional extends StatelessWidget {
   const Adicional({
     super.key,
-    required this.fem,
-    required this.ffem,
     required this.nome,
     required this.preco
   });
 
-  final double fem;
-  final double ffem;
   final String nome;
   final String preco;
 
   @override
   Widget build(BuildContext context) {
+    double baseWidth = 360;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double ffem = fem * 0.97;
+
     return Container(
       // frame12ges (64:3298)
       padding: EdgeInsets.fromLTRB(7*fem, 9*fem, 15*fem, 1.5*fem),

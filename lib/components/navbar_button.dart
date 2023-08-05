@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 class NavbarButton extends StatelessWidget {
   NavbarButton({
     super.key,
-    required this.fem,
     required this.icon,
     required this.route
   });
 
-  final double fem;
   final String icon;
   final String route;
 
@@ -21,6 +19,8 @@ class NavbarButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     IconData selectedIcon = iconsMap[icon]!;
+    double baseWidth = 360;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
 
     return Container(
       width: 60 * fem,

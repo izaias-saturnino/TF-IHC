@@ -10,11 +10,10 @@ class Prato extends StatelessWidget {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+
     return PageStructure(
-      fem: fem,
-      ffem: ffem,
-      height: 800,
       pageName: 'Prato',
+      usePadding: false,
       children: [
         Container(
           width: double.infinity,
@@ -319,22 +318,16 @@ class Prato extends StatelessWidget {
                                     Border.all(color: const Color(0x7f000000)),
                                 color: const Color(0xffebebeb),
                               ),
-                              child: Column(
+                              child: const Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Adicional(
-                                      fem: fem,
-                                      ffem: ffem,
                                       nome: 'Cebola1',
                                       preco: '0,50'),
                                   Adicional(
-                                      fem: fem,
-                                      ffem: ffem,
                                       nome: 'Cebola2',
                                       preco: '0,60'),
                                   Adicional(
-                                      fem: fem,
-                                      ffem: ffem,
                                       nome: 'Cebola3',
                                       preco: '0,70'),
                                 ],
@@ -377,31 +370,27 @@ class Prato extends StatelessWidget {
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           // crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
+                          children: const <Widget>[
                             Acompanhamento(
-                                fem: fem,
-                                ffem: ffem,
-                                nome: 'Polenta1',
-                                pathImg: 'polenta-frita',
-                                preco: '5,00'),
+                              nome: 'Polenta1',
+                              pathImg: 'polenta-frita',
+                              preco: '5,00'
+                            ),
                             Acompanhamento(
-                                fem: fem,
-                                ffem: ffem,
-                                nome: 'Polenta2',
-                                pathImg: 'polenta-frita',
-                                preco: '6,00'),
+                              nome: 'Polenta2',
+                              pathImg: 'polenta-frita',
+                              preco: '6,00'
+                            ),
                             Acompanhamento(
-                                fem: fem,
-                                ffem: ffem,
-                                nome: 'Polenta3',
-                                pathImg: 'polenta-frita',
-                                preco: '7,00'),
+                              nome: 'Polenta3',
+                              pathImg: 'polenta-frita',
+                              preco: '7,00'
+                            ),
                             Acompanhamento(
-                                fem: fem,
-                                ffem: ffem,
-                                nome: 'Polenta4',
-                                pathImg: 'polenta-frita',
-                                preco: '8,00'),
+                              nome: 'Polenta4',
+                              pathImg: 'polenta-frita',
+                              preco: '8,00'
+                            ),
                           ],
                         ),
                       ),
