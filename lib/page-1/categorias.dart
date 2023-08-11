@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/classes/classes.dart';
 import 'package:myapp/components/item_card.dart';
 import 'package:myapp/components/page_structure.dart';
 
@@ -8,30 +9,18 @@ class Categorias extends StatelessWidget {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
 
+    List<Map<String, String>> categories = [
+      {'title': 'PIZZAS', 'pathImg': 'pizza-de-calabresa'},
+      {'title': 'HAMBURGUERS', 'pathImg': 'hamburguer'},
+      {'title': 'BEBIDAS', 'pathImg': 'bebidas'},
+      {'title': 'PASTÉIS', 'pathImg': 'pasteis'},
+    ];
+
+    var uiCategories = ItemList.displayCategories(categories);
+
     return PageStructure(
       pageName: 'Categorias',
-      children: [
-        const ItemCard(
-          cardTitle: 'PIZZAS',
-          pathImg: 'pizza-de-calabresa'
-        ),
-        const ItemCard(
-          cardTitle: 'HAMBURGUERS',
-          pathImg: 'hamburguer'
-        ),
-        const ItemCard(
-          cardTitle: 'BEBIDAS',
-          pathImg: 'bebidas'
-        ),
-        const ItemCard(
-          cardTitle: 'PASTÉIS',
-          pathImg: 'pasteis'
-        ),
-        const ItemCard(
-          cardTitle: 'PASTÉIS',
-          pathImg: 'pasteis'
-        ),
-      ],
+      children: uiCategories,
     );
   }
 }

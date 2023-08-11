@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/classes/classes.dart';
 import 'package:myapp/components/item_card.dart';
 import 'package:myapp/components/page_structure.dart';
 import 'package:myapp/components/button.dart';
@@ -11,17 +12,41 @@ class Carrinho extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
+    List<Product> avaliableItems = [
+      Product(1, 'Pizza calabresa', 'pizza-de-calabresa', ['Bacon', 'queijo', 'mussarela', 'tomate', 'orégano', 'cebola', 'azeite', 'azeitona', 'champignon'], 70.00, 'pizza'),
+      Product(2, 'Xis salada', 'hamburguer', ['Hamburguer', 'Queijo', 'Alface', 'Tomate', 'Maionese'], 30.00, 'hamburguer'),
+      Product(3, 'Vinho tinto', 'bebidas', [], 60.00, 'bebida'),
+      Product(4, 'Pastel de carne', 'pasteis', [], 15.00, 'pastel'),
+      Product(5, 'Pizza calabresa', 'pizza-de-calabresa', ['Calabresa', 'queijo', 'mussarela', 'orégano'], 70.00, 'pizza'),
+    ];
+
+    ItemList cardapio = ItemList();
+
+    cardapio.items = [
+      {
+        'product': 2,
+        'quantidade': 1,
+        'acompanhamentos': {'id': 1, 'quantidade': 2},
+        'adicionais': {'id': 2, 'quantidade': 3}
+      },
+      {
+        'product': 3,
+        'quantidade': 1,
+        'acompanhamentos': {'id': 3, 'quantidade': 1},
+        'adicionais': {'id': 4, 'quantidade': 1}
+      }
+    ];
+
+    var uiCardapio = cardapio.displayCart(avaliableItems);
+
     return PageStructure(
       pageName: 'Carrinho',
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const ItemCard(cardTitle: 'Pizza calabresa', pathImg: 'pizza-de-calabresa'),
-            const ItemCard(cardTitle: 'Hamburguer', pathImg: 'hamburguer'),
-            const ItemCard(cardTitle: 'Vinho tinto', pathImg: 'bebidas'),
-            const ItemCard(cardTitle: 'Pastel de carne',pathImg: 'pasteis'),
-            Container(
+          children:
+            [uiCardapio].expand((x) => x).toList()+
+            [Container(
               padding: EdgeInsets.all(20.0 * fem),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(

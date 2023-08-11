@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/components/item_card.dart';
+import 'package:myapp/components/card_comparacao.dart';
 
 class User {
   int id;
@@ -47,7 +49,7 @@ class ItemList { // carrinho, comparacao ou cardápio
   //      'adicionais': {'id': 4, 'quantidade': 1}
   //  }
   // ];
-  var items = [];
+  List<Map<String, dynamic>> items = [];
 
   void addToList(int productId){
     items.add({"product": productId, "quantidade": 1, "acompanhamentos": {}, "adicionais": {}});
@@ -127,35 +129,53 @@ class ItemList { // carrinho, comparacao ou cardápio
     return categories;
   }
 
-  List<Widget> displayCart(){
-    List<Widget> comparisonWidgetList = [];
+  List<Widget> displayCart(List<Product> avaliableItems){
+    List<Widget> cartWidgetList = [];
     for(var item in items){
-      Product p = item["product"];
-      comparisonWidgetList.add(Text(p.name));
-      // TODO
-      //do something with other properties
+      var productId = item['product'];
+      Product p = getProductById(productId, avaliableItems)!;
+      cartWidgetList.add(
+        ItemCard(
+          cardTitle: p.name,
+          pathImg: p.imgUrl,
+        ),
+      );
     }
-    return comparisonWidgetList;
+    return cartWidgetList;
   }
 
-  List<Widget> displayCategories(){
-    List<Widget> comparisonWidgetList = [];
-    for(var item in items){
-      Product p = item["product"];
-      comparisonWidgetList.add(Text(p.name));
-      // TODO
-      //do something with other properties
+  static List<Widget> displayCategories(List<Map<String, String>> categories){
+    List<Widget> categorieWidgetList = [];
+    for(var category in categories){
+      categorieWidgetList.add(
+        ItemCard(
+          cardTitle: category["title"]!,
+          pathImg: category["pathImg"]!,
+        ),
+      );
     }
-    return comparisonWidgetList;
+    return categorieWidgetList;
   }
 
-  List<Widget> displayComparison(){
+  List<Widget> displayComparison(List<Product> avaliableItems, double fem){
     List<Widget> comparisonWidgetList = [];
+    var counter = 0;
     for(var item in items){
-      Product p = item["product"];
-      comparisonWidgetList.add(Text(p.name));
-      // TODO
-      //do something with other properties
+      counter++;
+      var productId = item['product'];
+      Product p = getProductById(productId, avaliableItems)!;
+      comparisonWidgetList.add(SizedBox(height: 16.0 * fem));
+      comparisonWidgetList.add(
+        CardComparacao(
+          nome: p.name,
+          ingredientes: p.ingredientList.join(", "),
+          preco: p.price.toString(),
+          pathImg: p.imgUrl
+        ),
+      );
+      if(counter == 2){
+        break;
+      }
     }
     return comparisonWidgetList;
   }
