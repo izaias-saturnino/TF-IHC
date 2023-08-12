@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/utils.dart';
 
 
-class Acompanhamento extends StatelessWidget {
-  const Acompanhamento({
+class ItemAcompanhamento extends StatelessWidget {
+  const ItemAcompanhamento({
     super.key,
     required this.nome,
     required this.pathImg,
@@ -12,7 +12,7 @@ class Acompanhamento extends StatelessWidget {
 
   final String nome;
   final String pathImg;
-  final String preco;
+  final double preco;
 
   @override
   Widget build(BuildContext context) {

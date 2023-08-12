@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/utils.dart';
 
-class Adicional extends StatelessWidget {
-  const Adicional({
+class ItemAdicional extends StatelessWidget {
+  const ItemAdicional({
     super.key,
     required this.nome,
     required this.preco
   });
 
   final String nome;
-  final String preco;
+  final double preco;
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +119,6 @@ class Adicional extends StatelessWidget {
             ),
           ),
           Container(
-            // r050qCK (9:513)
             margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 7.5*fem),
             child: Text(
               'R\$ $preco',

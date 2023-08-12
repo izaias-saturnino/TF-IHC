@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/components/navbar_button.dart';
-import 'package:myapp/components/button.dart';
-import 'package:myapp/utils.dart';
 
 class Navbar extends StatelessWidget {
   const Navbar({

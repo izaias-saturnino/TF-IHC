@@ -12,7 +12,7 @@ class Carrinho extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-    List<Product> avaliableItems = [
+    List<Product> availableItems = [
       Product(1, 'Pizza calabresa', 'pizza-de-calabresa', ['Bacon', 'queijo', 'mussarela', 'tomate', 'orégano', 'cebola', 'azeite', 'azeitona', 'champignon'], 70.00, 'pizza'),
       Product(2, 'Xis salada', 'hamburguer', ['Hamburguer', 'Queijo', 'Alface', 'Tomate', 'Maionese'], 30.00, 'hamburguer'),
       Product(3, 'Vinho tinto', 'bebidas', [], 60.00, 'bebida'),
@@ -37,7 +37,7 @@ class Carrinho extends StatelessWidget {
       }
     ];
 
-    var uiCardapio = cardapio.displayCart(avaliableItems);
+    var uiCardapio = cardapio.displayCart(availableItems);
 
     return PageStructure(
       pageName: 'Carrinho',

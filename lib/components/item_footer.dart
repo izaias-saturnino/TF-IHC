@@ -55,7 +55,7 @@ class ItemFooter extends StatelessWidget {
               decoration: BoxDecoration (
                 borderRadius: BorderRadius.circular(10*fem),
               ),
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 height: double.infinity,
                 child: Row(
@@ -90,7 +90,7 @@ class ItemFooter extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 26.78*fem,
                       height: 36*fem,
                       child: Image.asset(

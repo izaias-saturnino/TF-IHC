@@ -25,7 +25,7 @@ class PageStructure extends StatelessWidget {
         preferredSize: Size.fromHeight(120*fem),
         child: Container(
           width: double.infinity,
-          height: 200 * fem,
+          height: 300 * fem,
           decoration: const BoxDecoration(
             color: Color(0xff4B4318),
           ),
@@ -42,10 +42,8 @@ class PageStructure extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 children: [
                   Container(
-                    margin:
-                    EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 10 * fem),
                     padding:
-                    EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 9 * fem),
+                    EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 12 * fem),
                     width: double.infinity,
                     decoration: const BoxDecoration(
                       color: Color(0xffb22222),

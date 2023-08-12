@@ -9,7 +9,7 @@ class Comparacao extends StatelessWidget {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
 
-    List<Product> avaliableItems = [
+    List<Product> availableItems = [
       Product(1, 'Pizza calabresa', 'pizza-de-calabresa', ['Calabresa', 'Azeitona'], 70.00, 'pizza'),
       Product(2, 'Xis salada', 'hamburguer', ['Hamburguer', 'Queijo', 'Alface', 'Tomate', 'Maionese'], 30.00, 'hamburguer'),
       Product(3, 'Vinho tinto', 'bebidas', [], 60.00, 'bebida'),
@@ -33,7 +33,7 @@ class Comparacao extends StatelessWidget {
       }
     ];
 
-    var uiComparacao = comparacao.displayComparison(avaliableItems, fem);
+    var uiComparacao = comparacao.displayComparison(availableItems, fem);
 
     return PageStructure(
       pageName: 'Comparação',

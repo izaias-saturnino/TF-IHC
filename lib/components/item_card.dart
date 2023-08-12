@@ -28,7 +28,7 @@ class ItemCard extends StatelessWidget {
         }
       },
       child: Container(
-        width: double.infinity,
+        // width: double.infinity,
         height: 115*fem,
         decoration: BoxDecoration (
           color: const Color(0xffd9d9d9),
@@ -54,7 +54,6 @@ class ItemCard extends StatelessWidget {
               ),
             ),
             Positioned(
-              // component1kPq (10:401)
               left: 0*fem,
               top: 0*fem,
               child: SizedBox(
@@ -78,7 +77,6 @@ class ItemCard extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      // rectangle10Bzw (I10:401;9:94)
                       left: 0*fem,
                       top: 0*fem,
                       child: Align(
