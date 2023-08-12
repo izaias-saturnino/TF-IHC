@@ -3,9 +3,24 @@ import 'package:myapp/classes/classes.dart';
 import 'package:myapp/components/page_structure.dart';
 import 'package:myapp/components/montar_prato.dart';
 
-class Prato extends StatelessWidget {
+class Prato extends StatefulWidget {
+  @override
+  State<Prato> createState() => _PratoState();
+}
+
+class _PratoState extends State<Prato> {
+  Map data = { 'idProduct': -1 };
+
   @override
   Widget build(BuildContext context) {
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      data = ModalRoute.of(context)!.settings.arguments as Map;
+    }
+
+    if (data['idProduct'] == -1) {
+      return Container();
+    }
+
     List<Product> availableItems = [
       Product(1, 'Pizza calabresa', 'pizza-de-calabresa', ['Bacon', 'queijo', 'mussarela', 'tomate', 'orégano', 'cebola', 'azeite', 'azeitona', 'champignon'], 70.00, 'pizza'),
       Product(2, 'Xis salada', 'hamburguer', ['Hamburguer', 'Queijo', 'Alface', 'Tomate', 'Maionese'], 30.00, 'hamburguer'),
@@ -13,7 +28,7 @@ class Prato extends StatelessWidget {
       Product(4, 'Pastel de carne', 'pasteis', [], 15.00, 'pastel'),
       Product(5, 'Pizza calabresa', 'pizza-de-calabresa', ['Calabresa', 'queijo', 'mussarela', 'orégano'], 70.00, 'pizza'),
     ];
-    
+
     List<Adicional> adicionaisDisponiveis = [
       Adicional(1, 'Cebola', 0.5),
       Adicional(2, 'Tomate', 0.4),
@@ -31,8 +46,9 @@ class Prato extends StatelessWidget {
 
     prato.items = [
       {
-        'product': 1,
+        'idProduct': data['idProduct'],
         'quantidade': 1,
+        'idCategory': 'pizza',
         'acompanhamentos': [{'id': 1, 'quantidade': 2}, {'id': 2, 'quantidade': 2}],
         'adicionais': [{'id': 2, 'quantidade': 3}, {'id': 3, 'quantidade': 2}]
       }
@@ -41,9 +57,9 @@ class Prato extends StatelessWidget {
     var uiPrato = prato.displayPrato(availableItems, adicionaisDisponiveis, acompanhamentosDisponiveis);
 
     return PageStructure(
-      pageName: 'Prato',
-      usePadding: false,
-      children: uiPrato
+        pageName: 'Prato',
+        usePadding: false,
+        children: uiPrato
     );
   }
 }

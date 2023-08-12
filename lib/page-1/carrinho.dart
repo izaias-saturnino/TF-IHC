@@ -37,8 +37,9 @@ class Carrinho extends StatelessWidget {
       }
     ];
 
-    var uiCardapio = cardapio.displayCart(availableItems);
-
+    // TODO: função de display do carrinho
+    var uiCardapio = cardapio.displayCardapio(availableItems, '');
+    // var uiCardapio = [];
     return PageStructure(
       pageName: 'Carrinho',
       children: [

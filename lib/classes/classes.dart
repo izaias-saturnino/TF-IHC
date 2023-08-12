@@ -17,6 +17,14 @@ class User {
   }
 }
 
+class Category {
+  String id;
+  String name;
+  String pathImg;
+
+  Category(this.id, this.name, this.pathImg);
+}
+
 class Adicional {
   int id;
   String name;
@@ -31,9 +39,9 @@ class Product {
   String imgUrl;
   List<String> ingredientList;
   double price;
-  String category;
+  String idCategory;
 
-  Product(this.id, this.name, this.imgUrl, this.ingredientList, this.price, this.category);
+  Product(this.id, this.name, this.imgUrl, this.ingredientList, this.price, this.idCategory);
 
   Widget displayViewItem(){
     Widget w = Text(name);
@@ -60,14 +68,20 @@ class ItemList { // carrinho, comparacao ou cardápio
   // ];
   List<Map<String, dynamic>> items = [];
 
-  void addToList(int productId){
-    items.add({"product": productId, "quantidade": 1, "acompanhamentos": [], "adicionais": []});
+  void addToList(int productId, String idCategory){
+    items.add({
+      "idProduct": productId,
+      "quantidade": 1,
+      "idCategory": idCategory,
+      "acompanhamentos": [],
+      "adicionais": []
+    });
   }
 
   // TODO: verificar se é List<Map> ou só Map pra acompnanhamentos e adicionais
   void updateList(int productId, int? quantidade, Map<dynamic, dynamic>? acompanhamentos, Map<dynamic, dynamic>? adicionais){
     for(var item in items){
-      if(item["product"] == productId){
+      if(item["idProduct"] == productId){
         if(quantidade != null){
           item["quantidade"] = quantidade;
         }
@@ -84,7 +98,7 @@ class ItemList { // carrinho, comparacao ou cardápio
 
   void removeFromList(int productId){
     for(var item in items){
-      if(item["product"] == productId){
+      if(item["idProduct"] == productId){
         items.remove(item);
         break;
       }
@@ -103,7 +117,7 @@ class ItemList { // carrinho, comparacao ou cardápio
   List<dynamic> filter(String? name, String? category, List<String>? ingredientList, List<Product> availableItems){
     var filteredItems = [];
     for(var item in items){
-      Product? p = getProductById(item["product"], availableItems);
+      Product? p = getProductById(item["idProduct"], availableItems);
       if(p != null){
         if(name != null){
           if(p.name == name){
@@ -111,7 +125,7 @@ class ItemList { // carrinho, comparacao ou cardápio
           }
         }
         if(category != null){
-          if(p.category == category){
+          if(p.idCategory == category){
             filteredItems.add(item);
           }
         }
@@ -132,10 +146,10 @@ class ItemList { // carrinho, comparacao ou cardápio
   List<String> getCategories(List<Product> availableItems){
     List<String> categories = [];
     for(var item in items){
-      Product? p = getProductById(item["product"], availableItems);
+      Product? p = getProductById(item["idProduct"], availableItems);
       if(p != null){
-        if(!categories.contains(p.category)){
-          categories.add(p.category);
+        if(!categories.contains(p.idCategory)){
+          categories.add(p.idCategory);
         }
       }
     }
@@ -172,7 +186,8 @@ class ItemList { // carrinho, comparacao ou cardápio
         acompanhamentos.add(a);
       }
 
-      var productId = item['product'];
+      var productId = item['idProduct'];
+      if (productId == null) return [];
       Product p = getProductById(productId, availableItems)!;
       paginaPrato.add(
         MontarPrato(
@@ -188,31 +203,36 @@ class ItemList { // carrinho, comparacao ou cardápio
     return paginaPrato;
   }
 
-  List<Widget> displayCart(List<Product> availableItems){
-    List<Widget> cartWidgetList = [];
+  List<Widget> displayCardapio(List<Product> availableItems, String idCategory){
+    List<Widget> widgets = [];
 
-    for(var item in items){
-      var productId = item['product'];
-      Product p = getProductById(productId, availableItems)!;
-      cartWidgetList.add(
-        const SizedBox(height: 16),
-      );
-      cartWidgetList.add(
-        ItemCard(
-          cardTitle: p.name,
-          pathImg: p.imgUrl,
-        ),
-      );
+    for (Product p in availableItems) {
+      if (p.idCategory == idCategory) {
+        widgets.add(const SizedBox(height: 16));
+        widgets.add(ItemCard(prato: p));
+      }
     }
 
-    cartWidgetList.add(
-      const SizedBox(height: 16)
-    );
+    widgets.add(const SizedBox(height: 16));
+    // for(var item in items){
+    //   var productId = item['product'];
+    //   Product p = getProductById(productId, availableItems)!;
+    //   cartWidgetList.add(
+    //     const SizedBox(height: 16),
+    //   );
+    //   cartWidgetList.add(
+    //     ItemCard(prato: p),
+    //   );
+    // }
+    //
+    // cartWidgetList.add(
+    //   const SizedBox(height: 16)
+    // );
 
-    return cartWidgetList;
+    return widgets;
   }
 
-  static List<Widget> displayCategories(List<Map<String, String>> categories){
+  static List<Widget> displayCategories(List<Category> categories){
     List<Widget> categorieWidgetList = [];
 
     for(var category in categories){
@@ -220,10 +240,7 @@ class ItemList { // carrinho, comparacao ou cardápio
         const SizedBox(height: 16)
       );
       categorieWidgetList.add(
-        ItemCard(
-          cardTitle: category["title"]!,
-          pathImg: category["pathImg"]!,
-        ),
+        ItemCard(category: category),
       );
     }
     categorieWidgetList.add(
@@ -238,7 +255,7 @@ class ItemList { // carrinho, comparacao ou cardápio
     var counter = 0;
     for(var item in items){
       counter++;
-      var productId = item['product'];
+      var productId = item['idProduct'];
       Product p = getProductById(productId, availableItems)!;
       comparisonWidgetList.add(SizedBox(height: 16.0 * fem));
       comparisonWidgetList.add(

@@ -29,11 +29,11 @@ class ItemCardapio extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          ItemCard(
-              cardTitle: cardTitle,
-              pathImg: pathImg,
-              isCategory: isCategory
-          ),
+          // ItemCard(
+          //     cardTitle: cardTitle,
+          //     pathImg: pathImg,
+          //     isCategory: isCategory
+          // ),
           const SizedBox(height: 8.0),
           const ItemFooter(),
         ],

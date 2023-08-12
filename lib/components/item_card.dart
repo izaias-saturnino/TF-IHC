@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/utils.dart';
+import 'package:myapp/classes/classes.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({
     super.key,
-    required this.cardTitle,
-    required this.pathImg,
+    this.category,
+    this.prato,
+    // required this.cardTitle,
+    // required this.pathImg,
     this.isCategory = true
   });
-
-  final String cardTitle;
-  final String pathImg;
+  final Category? category;
+  final Product? prato;
+  //
+  // final String cardTitle;
+  // final String pathImg;
   final bool isCategory;
 
   @override
@@ -19,12 +24,34 @@ class ItemCard extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
+    String pathImg = 'assets/page-1/images/';
+    if (category == null) {
+      pathImg += '${prato!.imgUrl}.png';
+    } else {
+      pathImg +=  '${category!.pathImg}.png';
+    }
+
+    String cardTitle = '';
+    if (category == null) {
+      cardTitle = prato!.name;
+    } else {
+      cardTitle = category!.name;
+    }
+
     return TextButton(
       onPressed: () {
-        if (isCategory) {
-          Navigator.pushNamed(context, '/cardapio');
+        if (category == null) {
+          Navigator.pushNamed(
+            context,
+            '/prato',
+            arguments: { 'idProduct': prato!.id }
+          );
         } else {
-          Navigator.pushNamed(context, '/prato');
+          Navigator.pushNamed(
+            context,
+            '/cardapio',
+            arguments: { 'idCategory': category!.id }
+          );
         }
       },
       child: Container(
@@ -46,7 +73,7 @@ class ItemCard extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10*fem),
                     child: Image.asset(
-                      'assets/page-1/images/$pathImg.png',
+                      pathImg,
                       fit: BoxFit.cover,
                     ),
                   ),

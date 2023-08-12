@@ -9,7 +9,7 @@ import 'package:myapp/classes/classes.dart';
 // TODO: conferir lugar onde o preço é uma string, talvez mudar
 // para float para fazer cálculos
 
-class MontarPrato extends StatelessWidget {
+class MontarPrato extends StatefulWidget {
   const MontarPrato({
     super.key,
     required this.mealName,
@@ -25,6 +25,11 @@ class MontarPrato extends StatelessWidget {
   final List<Adicional> adicionais;
   final List<Product> acompanhamentos;
 
+  @override
+  State<MontarPrato> createState() => _MontarPratoState();
+}
+
+class _MontarPratoState extends State<MontarPrato> {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -59,21 +64,21 @@ class MontarPrato extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               PratoHeader(
-                                mealName: mealName,
-                                price: price,
-                                ingredients: ingredients,
+                                mealName: widget.mealName,
+                                price: widget.price,
+                                ingredients: widget.ingredients,
                               ),
                               const PratoBarraCarrinho(),
                             ],
                           ),
                         ),
                         const PratoSubtitulo(title: 'Adicionais'),
-                        TabelaAdicionais(adicionais: adicionais),
+                        TabelaAdicionais(adicionais: widget.adicionais),
                         const PratoSubtitulo(title: 'Acompanhamentos'),
                       ],
                     ),
                   ),
-                  Acompanhamentos(acompanhamentos: acompanhamentos),
+                  Acompanhamentos(acompanhamentos: widget.acompanhamentos),
                 ],
               ),
             ),
