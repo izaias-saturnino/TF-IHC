@@ -2,26 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:myapp/classes/classes.dart';
 import 'package:myapp/components/page_structure.dart';
 
-class Categorias extends StatelessWidget {
+class Categorias extends StatefulWidget {
+  @override
+  State<Categorias> createState() => _CategoriasState();
+}
+
+class _CategoriasState extends State<Categorias> {
   @override
   Widget build(BuildContext context) {
-    List<Map<String, String>> categories = [
-      {'title': 'PIZZAS', 'pathImg': 'pizza-de-calabresa'},
-      {'title': 'HAMBURGUERS', 'pathImg': 'hamburguer'},
-      {'title': 'BEBIDAS', 'pathImg': 'bebidas'},
-      {'title': 'PASTÉIS', 'pathImg': 'pasteis'},
-    ];
+    double baseWidth = 360;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
 
-    List<Category> categorias = [
-      Category('pizza', 'Pizzas', 'pizza-de-calabresa'),
-      Category('hamburguer', 'Hamburguers', 'hamburguer')
-    ];
-
-    var uiCategories = ItemList.displayCategories(categorias);
-
+    var cats = Category2.displayCategorias();
     return PageStructure(
       pageName: 'Categorias',
-      children: uiCategories,
+      children:
+        [cats].expand((element) => element).toList()+
+        [
+          SizedBox(
+            width: 60 * fem,
+            height: 100 * fem,
+            child: MaterialButton(
+              onPressed: () {
+                setState(() {
+                  Category2.setCategorias({
+                    'id': 'pizza',
+                    'nome': 'Pizzas',
+                    'imgUrl': 'pizza-de-calabresa'
+                  });
+                });
+              },
+              color: const Color(0xffffd700),
+              textColor: Colors.black,
+              shape: const CircleBorder(),
+              child: Icon(
+                Icons.add,
+                size: 28 * fem,
+              ),
+            ),
+          ),
+        ],
     );
   }
 }

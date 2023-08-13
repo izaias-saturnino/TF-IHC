@@ -9,7 +9,7 @@ class Prato extends StatefulWidget {
 }
 
 class _PratoState extends State<Prato> {
-  Map data = { 'idProduct': -1 };
+  Map data = { 'idPrato': -1 };
 
   @override
   Widget build(BuildContext context) {
@@ -17,49 +17,49 @@ class _PratoState extends State<Prato> {
       data = ModalRoute.of(context)!.settings.arguments as Map;
     }
 
-    if (data['idProduct'] == -1) {
+    if (data['idPrato'] == -1) {
       return Container();
     }
 
-    List<Product> availableItems = [
-      Product(1, 'Pizza calabresa', 'pizza-de-calabresa', ['Bacon', 'queijo', 'mussarela', 'tomate', 'orégano', 'cebola', 'azeite', 'azeitona', 'champignon'], 70.00, 'pizza'),
-      Product(2, 'Xis salada', 'hamburguer', ['Hamburguer', 'Queijo', 'Alface', 'Tomate', 'Maionese'], 30.00, 'hamburguer'),
-      Product(3, 'Vinho tinto', 'bebidas', [], 60.00, 'bebida'),
-      Product(4, 'Pastel de carne', 'pasteis', [], 15.00, 'pastel'),
-      Product(5, 'Pizza calabresa', 'pizza-de-calabresa', ['Calabresa', 'queijo', 'mussarela', 'orégano'], 70.00, 'pizza'),
-    ];
-
-    List<Adicional> adicionaisDisponiveis = [
-      Adicional(1, 'Cebola', 0.5),
-      Adicional(2, 'Tomate', 0.4),
-      Adicional(3, 'Queijo', 0.7)
-    ];
-
-    List<Product> acompanhamentosDisponiveis = [
-      Product(1, 'Polenta1', 'polenta-frita', [], 1.0, ''),
-      Product(2, 'Polenta2', 'polenta-frita', [], 2.0, ''),
-      Product(3, 'Polenta3', 'polenta-frita', [], 3.0, ''),
-      Product(4, 'Polenta4', 'polenta-frita', [], 4.0, ''),
-    ];
-
-    ItemList prato = ItemList();
-
-    prato.items = [
-      {
-        'idProduct': data['idProduct'],
-        'quantidade': 1,
-        'idCategory': 'pizza',
-        'acompanhamentos': [{'id': 1, 'quantidade': 2}, {'id': 2, 'quantidade': 2}],
-        'adicionais': [{'id': 2, 'quantidade': 3}, {'id': 3, 'quantidade': 2}]
-      }
-    ];
-
-    var uiPrato = prato.displayPrato(availableItems, adicionaisDisponiveis, acompanhamentosDisponiveis);
-
+    // List<Product> availableItems = [
+    //   Product(1, 'Pizza calabresa', 'pizza-de-calabresa', ['Bacon', 'queijo', 'mussarela', 'tomate', 'orégano', 'cebola', 'azeite', 'azeitona', 'champignon'], 70.00, 'pizza'),
+    //   Product(2, 'Xis salada', 'hamburguer', ['Hamburguer', 'Queijo', 'Alface', 'Tomate', 'Maionese'], 30.00, 'hamburguer'),
+    //   Product(3, 'Vinho tinto', 'bebidas', [], 60.00, 'bebida'),
+    //   Product(4, 'Pastel de carne', 'pasteis', [], 15.00, 'pastel'),
+    //   Product(5, 'Pizza calabresa', 'pizza-de-calabresa', ['Calabresa', 'queijo', 'mussarela', 'orégano'], 70.00, 'pizza'),
+    // ];
+    //
+    // List<Adicional> adicionaisDisponiveis = [
+    //   Adicional(1, 'Cebola', 0.5),
+    //   Adicional(2, 'Tomate', 0.4),
+    //   Adicional(3, 'Queijo', 0.7)
+    // ];
+    //
+    // List<Product> acompanhamentosDisponiveis = [
+    //   Product(1, 'Polenta1', 'polenta-frita', [], 1.0, ''),
+    //   Product(2, 'Polenta2', 'polenta-frita', [], 2.0, ''),
+    //   Product(3, 'Polenta3', 'polenta-frita', [], 3.0, ''),
+    //   Product(4, 'Polenta4', 'polenta-frita', [], 4.0, ''),
+    // ];
+    //
+    // ItemList prato = ItemList();
+    //
+    // prato.items = [
+    //   {
+    //     'idProduct': data['idProduct'],
+    //     'quantidade': 1,
+    //     'idCategory': 'pizza',
+    //     'acompanhamentos': [{'id': 1, 'quantidade': 2}, {'id': 2, 'quantidade': 2}],
+    //     'adicionais': [{'id': 2, 'quantidade': 3}, {'id': 3, 'quantidade': 2}]
+    //   }
+    // ];
+    //
+    // var uiPrato = prato.displayPrato(availableItems, adicionaisDisponiveis, acompanhamentosDisponiveis);
+    var cats = Product2.displayPrato(data['idPrato']);
     return PageStructure(
         pageName: 'Prato',
         usePadding: false,
-        children: uiPrato
+        children: cats
     );
   }
 }

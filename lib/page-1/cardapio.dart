@@ -14,34 +14,11 @@ class _CardapioState extends State<Cardapio> {
   @override
   Widget build(BuildContext context) {
     data = data.isEmpty ? ModalRoute.of(context)!.settings.arguments as Map : data;
+
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
 
-    List<Product> availableItems = [
-      Product(1, 'Pizza calabresa', 'pizza-de-calabresa', ['Bacon', 'queijo', 'mussarela', 'tomate', 'orégano', 'cebola', 'azeite', 'azeitona', 'champignon'], 60.00, 'pizza'),
-      Product(2, 'Pizza siciliana', 'pizza-siciliana', ['Bacon', 'queijo', 'mussarela', 'tomate', 'orégano', 'cebola', 'azeite', 'azeitona', 'champignon'], 70.00, 'pizza'),
-      Product(1, 'Xis salada', 'hamburguer', ['Hamburguer', 'Queijo', 'Alface', 'Tomate', 'Maionese'], 30.00, 'hamburguer'),
-      Product(2, 'Xis tudo', 'hamburguer', ['Hamburguer', 'Queijo', 'Alface', 'Tomate', 'Maionese'], 45.00, 'hamburguer'),
-    ];
-
-    ItemList pratos = ItemList();
-
-    pratos.items = [
-      {
-        'product': 1,
-        'quantidade': 1,
-        'acompanhamentos': [{'id': 1, 'quantidade': 2}, {'id': 2, 'quantidade': 2}],
-        'adicionais': [{'id': 2, 'quantidade': 3}, {'id': 3, 'quantidade': 2}]
-      },
-      {
-        'product': 2,
-        'quantidade': 1,
-        'acompanhamentos': [{'id': 1, 'quantidade': 2}, {'id': 2, 'quantidade': 2}],
-        'adicionais': [{'id': 2, 'quantidade': 3}, {'id': 3, 'quantidade': 2}]
-      }
-    ];
-
-    var uiCardapio = pratos.displayCardapio(availableItems, data["idCategory"]);
+    var cats = Product2.displayCardapio(data['idCategoria']);
 
     return PageStructure(
       pageName: 'Cardápio',
@@ -50,8 +27,38 @@ class _CardapioState extends State<Cardapio> {
         SizedBox(
           width: double.infinity,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: uiCardapio,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children:
+            [cats].expand((element) => element).toList()+
+            [
+              SizedBox(
+                width: 60 * fem,
+                height: 100 * fem,
+                child: MaterialButton(
+                  onPressed: () {
+                    setState(() {
+                      Product2.setPratos({
+                        'id': 'pizza-calabresa',
+                        'nome': 'Pizza de calabresa',
+                        'imgUrl': 'pizza-de-calabresa',
+                        'ingredientes': ['ing1', 'ing2'],
+                        'preco': 40.0,
+                        'idCategoria': 'pizza',
+                        'idAdicionais': ['queijo'],
+                        'idAcompanhamentos': ['polenta1']
+                      });
+                    });
+                  },
+                  color: const Color(0xffffd700),
+                  textColor: Colors.black,
+                  shape: const CircleBorder(),
+                  child: Icon(
+                    Icons.add,
+                    size: 28 * fem,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ],

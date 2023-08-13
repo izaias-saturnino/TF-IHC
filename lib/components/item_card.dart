@@ -5,18 +5,12 @@ import 'package:myapp/classes/classes.dart';
 class ItemCard extends StatelessWidget {
   const ItemCard({
     super.key,
-    this.category,
-    this.prato,
-    // required this.cardTitle,
-    // required this.pathImg,
-    this.isCategory = true
+    this.categoria,
+    this.prato
   });
-  final Category? category;
-  final Product? prato;
-  //
-  // final String cardTitle;
-  // final String pathImg;
-  final bool isCategory;
+
+  final Map<String, dynamic>? categoria;
+  final Map<String, dynamic>? prato;
 
   @override
   Widget build(BuildContext context) {
@@ -25,32 +19,33 @@ class ItemCard extends StatelessWidget {
     double ffem = fem * 0.97;
 
     String pathImg = 'assets/page-1/images/';
-    if (category == null) {
-      pathImg += '${prato!.imgUrl}.png';
+    if (categoria != null) {
+      pathImg += '${categoria!['imgUrl']}.png';
     } else {
-      pathImg +=  '${category!.pathImg}.png';
+      pathImg += '${prato!['imgUrl']}.png';
     }
 
     String cardTitle = '';
-    if (category == null) {
-      cardTitle = prato!.name;
+    if (categoria != null) {
+      cardTitle = categoria!['nome'];
     } else {
-      cardTitle = category!.name;
+      cardTitle = prato!['nome'];
     }
 
     return TextButton(
       onPressed: () {
-        if (category == null) {
-          Navigator.pushNamed(
-            context,
-            '/prato',
-            arguments: { 'idProduct': prato!.id }
-          );
-        } else {
+        if (categoria != null) {
           Navigator.pushNamed(
             context,
             '/cardapio',
-            arguments: { 'idCategory': category!.id }
+            arguments: { 'idCategoria': categoria!['id'] }
+          );
+        }
+        else {
+          Navigator.pushNamed(
+            context,
+            '/prato',
+            arguments: { 'idPrato': prato!['id'] }
           );
         }
       },
@@ -112,7 +107,7 @@ class ItemCard extends StatelessWidget {
                           height: 115*fem,
                           child: Container(
                             decoration: BoxDecoration (
-                              color: isCategory ? const Color(0xffd1a000): const Color(0xffffd700),
+                              color: categoria != null ? const Color(0xffd1a000): const Color(0xffffd700),
                               borderRadius: BorderRadius.only (
                                 topLeft: Radius.circular(10*fem),
                                 bottomLeft: Radius.circular(10*fem),

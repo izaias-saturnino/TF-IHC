@@ -2,14 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:myapp/classes/classes.dart';
 import 'package:myapp/components/item_acompanhamento.dart';
 
-class Acompanhamentos extends StatelessWidget {
+class Acompanhamentos extends StatefulWidget {
   const Acompanhamentos({
     super.key,
     required this.acompanhamentos
   });
 
-  final List<Product> acompanhamentos;
+  final List<Map<String, dynamic>> acompanhamentos;
 
+  @override
+  State<Acompanhamentos> createState() => _AcompanhamentosState();
+}
+
+class _AcompanhamentosState extends State<Acompanhamentos> {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -26,24 +31,24 @@ class Acompanhamentos extends StatelessWidget {
       ),
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: displayAcompanhamentos(acompanhamentos)
+        children: Acompanhamento.displayAcompanhamentos(widget.acompanhamentos)
       ),
     );
   }
 }
 
-List<Widget> displayAcompanhamentos(List<Product> acompanhamentos){
-  List<Widget> widgets = [];
-
-  for(var acompanhamento in acompanhamentos){
-    widgets.add(
-      ItemAcompanhamento(
-        nome: acompanhamento.name,
-        preco: acompanhamento.price,
-        pathImg: acompanhamento.imgUrl,
-      ),
-    );
-  }
-
-  return widgets;
-}
+// List<Widget> displayAcompanhamentos(List<Product> acompanhamentos){
+//   List<Widget> widgets = [];
+//
+//   for(var acompanhamento in acompanhamentos){
+//     widgets.add(
+//       ItemAcompanhamento(
+//         nome: acompanhamento.name,
+//         preco: acompanhamento.price,
+//         pathImg: acompanhamento.imgUrl,
+//       ),
+//     );
+//   }
+//
+//   return widgets;
+// }

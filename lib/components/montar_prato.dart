@@ -22,8 +22,8 @@ class MontarPrato extends StatefulWidget {
   final String mealName;
   final List<String> ingredients;
   final double price;
-  final List<Adicional> adicionais;
-  final List<Product> acompanhamentos;
+  final List<Map<String, dynamic>> adicionais;
+  final List<Map<String, dynamic>> acompanhamentos;
 
   @override
   State<MontarPrato> createState() => _MontarPratoState();

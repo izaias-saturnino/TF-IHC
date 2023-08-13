@@ -24,8 +24,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  ItemList allProducts = ItemList();
-  ItemList cart = ItemList();
+  // ItemList allProducts = ItemList();
+  // ItemList cart = ItemList();
 
   // onPressed(): (){
   //   setState(() {
@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
 	@override
 	Widget build(BuildContext context) {
 		return MaterialApp(
-			initialRoute: '/prato',
+			initialRoute: '/categorias',
 			routes: {
 				'/nova-senha': (context) => NovaSenha(),
 				'/prato': (context) => Prato(),
