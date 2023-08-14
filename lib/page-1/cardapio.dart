@@ -11,6 +11,8 @@ class Cardapio extends StatefulWidget {
 class _CardapioState extends State<Cardapio> {
   Map data = {};
 
+  
+
   @override
   Widget build(BuildContext context) {
     data = data.isEmpty ? ModalRoute.of(context)!.settings.arguments as Map : data;

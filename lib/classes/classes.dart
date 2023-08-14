@@ -46,6 +46,7 @@ class CarrinhoCompras {
 class Category2 {
   Category2._();
   static Category2? _instance;
+
   static Category2 getInstance() {
     _instance ??= Category2._();
     return _instance!;

@@ -8,6 +8,32 @@ class Categorias extends StatefulWidget {
 }
 
 class _CategoriasState extends State<Categorias> {
+
+  List<Map<String, dynamic>> list = [
+    {
+      'id': 'pizza',
+      'nome': 'Pizzas',
+      'imgUrl': 'pizza-de-calabresa'
+    },
+    {
+      'id': 'hamburguer',
+      'nome': 'Lanches',
+      'imgUrl': 'hamburguer'
+    },
+    {
+      'id': 'pastel',
+      'nome': 'Pastéis',
+      'imgUrl': 'pasteis'
+    },
+    {
+      'id': 'bebida',
+      'nome': 'Bebidas',
+      'imgUrl': 'bebidas'
+    }
+  ];
+
+  int counter = 0;
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -25,11 +51,8 @@ class _CategoriasState extends State<Categorias> {
             child: MaterialButton(
               onPressed: () {
                 setState(() {
-                  Category2.setCategorias({
-                    'id': 'pizza',
-                    'nome': 'Pizzas',
-                    'imgUrl': 'pizza-de-calabresa'
-                  });
+                  Category2.setCategorias(list[counter]);
+                  counter++;
                 });
               },
               color: const Color(0xffffd700),
