@@ -46,6 +46,8 @@ class CarrinhoCompras {
 class Category2 {
   Category2._();
   static Category2? _instance;
+
+  static int category_counter = 0;
   static Category2 getInstance() {
     _instance ??= Category2._();
     return _instance!;
@@ -56,6 +58,7 @@ class Category2 {
   static List<Map<String, dynamic>> get categorias => _categorias;
   static void setCategorias(Map<String, dynamic> novaCategoria) {
     _categorias.add(novaCategoria);
+    category_counter++;
   }
 
   static List<Widget> displayCategorias(){

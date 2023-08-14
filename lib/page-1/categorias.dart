@@ -13,6 +13,31 @@ class _CategoriasState extends State<Categorias> {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
 
+    int counter = 0;
+
+    List<Map<String, dynamic>> list = [
+      {
+        'id': 'pizza',
+        'nome': 'Pizzas',
+        'imgUrl': 'pizza-de-calabresa'
+      },
+      {
+        'id': 'hamburguer',
+        'nome': 'Lanches',
+        'imgUrl': 'hamburguer'
+      },
+      {
+        'id': 'pastel',
+        'nome': 'Pastéis',
+        'imgUrl': 'pasteis'
+      },
+      {
+        'id': 'bebida',
+        'nome': 'Bebidas',
+        'imgUrl': 'bebidas'
+      }
+    ];
+
     var cats = Category2.displayCategorias();
     return PageStructure(
       pageName: 'Categorias',
@@ -25,11 +50,7 @@ class _CategoriasState extends State<Categorias> {
             child: MaterialButton(
               onPressed: () {
                 setState(() {
-                  Category2.setCategorias({
-                    'id': 'pizza',
-                    'nome': 'Pizzas',
-                    'imgUrl': 'pizza-de-calabresa'
-                  });
+                  Category2.setCategorias(list[Category2.category_counter%list.length]);
                 });
               },
               color: const Color(0xffffd700),
