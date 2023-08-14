@@ -15,6 +15,8 @@ class Input extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
+    final _textController = TextEditingController();
+
     return SizedBox(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,11 +31,23 @@ class Input extends StatelessWidget {
               decoration: TextDecoration.none),
           ),
           SizedBox(height: 4.0 * fem),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 20.0 * fem, horizontal: 0.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20 * fem),
-              color: const Color(0xffffd700),
+          // Container(
+          //   padding: EdgeInsets.symmetric(vertical: 20.0 * fem, horizontal: 0.0),
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(20 * fem),
+          //     color: const Color(0xffffd700),
+          //   ),
+          // ),
+          TextField(
+            controller: _textController,
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              suffixIcon: IconButton(
+                onPressed: () {
+                  _textController.clear();
+                },
+                icon: const Icon(Icons.clear),
+              ),
             ),
           ),
         ],

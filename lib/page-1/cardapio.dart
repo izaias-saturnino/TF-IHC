@@ -38,14 +38,14 @@ class _CardapioState extends State<Cardapio> {
                   onPressed: () {
                     setState(() {
                       Product2.setPratos({
-                        'id': 'pizza-calabresa',
-                        'nome': 'Pizza de calabresa',
+                        'id': '',
+                        'nome': '',
                         'imgUrl': 'pizza-de-calabresa',
-                        'ingredientes': ['ing1', 'ing2'],
-                        'preco': 40.0,
-                        'idCategoria': 'pizza',
-                        'idAdicionais': ['queijo'],
-                        'idAcompanhamentos': ['polenta1']
+                        'ingredientes': [],
+                        'preco': 0.0,
+                        'idCategoria': data['idCategoria'],
+                        'idAdicionais': [],
+                        'idAcompanhamentos': []
                       });
                     });
                   },

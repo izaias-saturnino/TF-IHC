@@ -32,6 +32,8 @@ class ItemCard extends StatelessWidget {
       cardTitle = prato!['nome'];
     }
 
+    final _valorInput = TextEditingController(text: cardTitle);
+
     return TextButton(
       onPressed: () {
         if (categoria != null) {
@@ -124,15 +126,42 @@ class ItemCard extends StatelessWidget {
                         child: SizedBox(
                           width: 250*fem,
                           height: 30*fem,
-                          child: Text(
-                            cardTitle,
-                            style: SafeGoogleFont (
-                                'Inter',
-                                fontSize: 24*ffem,
-                                fontWeight: FontWeight.w400,
-                                height: 1.2125*ffem/fem,
-                                color: const Color(0xff000000),
-                                decoration: TextDecoration.none
+                          child:
+                          // Text(
+                          //   cardTitle,
+                          //   style: SafeGoogleFont (
+                          //       'Inter',
+                          //       fontSize: 24*ffem,
+                          //       fontWeight: FontWeight.w400,
+                          //       height: 1.2125*ffem/fem,
+                          //       color: const Color(0xff000000),
+                          //       decoration: TextDecoration.none
+                          //   ),
+                          // ),
+                          TextField(
+                            controller: _valorInput,
+                            decoration: InputDecoration(
+                              hintText: 'Adicionar nome',
+                              border: InputBorder.none,
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  if (categoria != null) {
+                                    Category2.atualizarUmaCategoria(
+                                      categoria!['id'],
+                                      _valorInput.text
+                                    );
+                                  } else {
+                                    Product2.atualizarUmPrato(
+                                      prato!['id'],
+                                      _valorInput.text
+                                    );
+                                  }
+                                },
+                                // TODO: ao invés de clicar no check e atualizar o item,
+                                // poderia pegar o evento de atualização e usar um debounce
+                                // para atualizar e retirar o ícone de check
+                                icon: const Icon(Icons.check),
+                              ),
                             ),
                           ),
                         ),

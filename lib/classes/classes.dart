@@ -57,20 +57,26 @@ class Category2 {
   static List<Map<String, dynamic>> _categorias = [];
   static List<Map<String, dynamic>> get categorias => _categorias;
   static void setCategorias(Map<String, dynamic> novaCategoria) {
+    novaCategoria['id'] = category_counter.toString();
     _categorias.add(novaCategoria);
     category_counter++;
+  }
+
+  static void atualizarUmaCategoria(String idCategoria, String nomeCategoria) {
+    for (var categoria in _categorias) {
+      if (categoria['id'] == idCategoria) {
+        categoria['nome'] = nomeCategoria;
+        break;
+      }
+    }
   }
 
   static List<Widget> displayCategorias(){
     List<Widget> widgets = [];
 
     for(var categoria in _categorias){
-      if (widgets.length < 3) {
-        widgets.add(const SizedBox(height: 16));
-        widgets.add(ItemCard(categoria: categoria));
-      } else {
-        break;
-      }
+      widgets.add(const SizedBox(height: 16));
+      widgets.add(ItemCard(categoria: categoria));
     }
 
     widgets.add(const SizedBox(height: 16));
@@ -167,24 +173,39 @@ class Product2 {
     return _instance!;
   }
 
+  static int prato_counter = 0;
+
   // String id, String nome, String imgUrl
   // List<String> ingredientes, double preco, String idCategoria
   // List<String> idAdicionais, List<String> idAcompanhamentos
   static List<Map<String, dynamic>> _pratos = [];
   static List<Map<String, dynamic>> get pratos => _pratos;
+
   static void setPratos(Map<String, dynamic> novoPrato) {
+    novoPrato['id'] = prato_counter.toString();
     _pratos.add(novoPrato);
+    prato_counter++;
+    print(_pratos);
+  }
+
+  static void atualizarUmPrato(String idPrato, String nomePrato) {
+    for (var prato in _pratos) {
+      if (prato['id'] == idPrato) {
+        prato['nome'] = nomePrato;
+        print(prato);
+        break;
+      }
+    }
   }
 
   static List<Widget> displayCardapio(String idCategoria){
     List<Widget> widgets = [];
 
-    for (Map<String, dynamic> p in Product2.pratos) {
-      if (p["idCategoria"] == idCategoria) {
+    for (var prato in _pratos) {
+      if (prato['idCategoria'] == idCategoria) {
         widgets.add(const SizedBox(height: 16));
-        widgets.add(ItemCard(prato: p));
+        widgets.add(ItemCard(prato: prato));
       }
-      if (widgets.length >= 5) break;
     }
 
     widgets.add(const SizedBox(height: 16));

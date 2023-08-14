@@ -50,7 +50,11 @@ class _CategoriasState extends State<Categorias> {
             child: MaterialButton(
               onPressed: () {
                 setState(() {
-                  Category2.setCategorias(list[Category2.category_counter%list.length]);
+                  Category2.setCategorias({
+                    'id': '',
+                    'nome': '',
+                    'imgUrl': 'pizza-de-calabresa'
+                  });
                 });
               },
               color: const Color(0xffffd700),
