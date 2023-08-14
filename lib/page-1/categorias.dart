@@ -8,61 +8,10 @@ class Categorias extends StatefulWidget {
 }
 
 class _CategoriasState extends State<Categorias> {
-
-  List<Map<String, dynamic>> list = [
-    {
-      'id': 'pizza',
-      'nome': 'Pizzas',
-      'imgUrl': 'pizza-de-calabresa'
-    },
-    {
-      'id': 'hamburguer',
-      'nome': 'Lanches',
-      'imgUrl': 'hamburguer'
-    },
-    {
-      'id': 'pastel',
-      'nome': 'Pastéis',
-      'imgUrl': 'pasteis'
-    },
-    {
-      'id': 'bebida',
-      'nome': 'Bebidas',
-      'imgUrl': 'bebidas'
-    }
-  ];
-
-  int counter = 0;
-
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
-
-    int counter = 0;
-
-    List<Map<String, dynamic>> list = [
-      {
-        'id': 'pizza',
-        'nome': 'Pizzas',
-        'imgUrl': 'pizza-de-calabresa'
-      },
-      {
-        'id': 'hamburguer',
-        'nome': 'Lanches',
-        'imgUrl': 'hamburguer'
-      },
-      {
-        'id': 'pastel',
-        'nome': 'Pastéis',
-        'imgUrl': 'pasteis'
-      },
-      {
-        'id': 'bebida',
-        'nome': 'Bebidas',
-        'imgUrl': 'bebidas'
-      }
-    ];
 
     var cats = Category2.displayCategorias();
     return PageStructure(
