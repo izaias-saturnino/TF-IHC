@@ -9,6 +9,7 @@ import 'package:myapp/page-1/carrinho.dart';
 import 'package:myapp/page-1/categorias.dart';
 import 'package:myapp/page-1/cardapio.dart';
 import 'package:myapp/page-1/login.dart';
+import 'package:myapp/page-1/cadastro.dart';
 import 'package:myapp/page-1/recuperacao-de-senha.dart';
 import 'package:myapp/page-1/recuperacao-de-senha-confirmacao.dart';
 import 'package:myapp/page-1/nova-senha.dart';
@@ -38,7 +39,7 @@ class _MyAppState extends State<MyApp> {
 	@override
 	Widget build(BuildContext context) {
 		return MaterialApp(
-			initialRoute: '/categorias',
+			initialRoute: '/cadastro',
 			routes: {
 				'/nova-senha': (context) => NovaSenha(),
 				'/prato': (context) => Prato(),
@@ -47,6 +48,7 @@ class _MyAppState extends State<MyApp> {
 				'/categorias': (context) => Categorias(),
 				'/cardapio': (context) => Cardapio(),
 				'/login': (context) => Login(),
+				'/cadastro': (context) => Cadastro(),
 				'/recuperacao-senha': (context) => RecuperacaoSenha(),
 				'/recuperacao-senha-confirmacao': (context) => RecuperacaoSenhaConfirmacao(),
 				'/status': (context) => StatusPedido(),

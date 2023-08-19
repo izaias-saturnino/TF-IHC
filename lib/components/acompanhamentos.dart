@@ -5,9 +5,11 @@ import 'package:myapp/components/item_acompanhamento.dart';
 class Acompanhamentos extends StatefulWidget {
   const Acompanhamentos({
     super.key,
+    required this.idPrato,
     required this.acompanhamentos
   });
 
+  final String idPrato;
   final List<Map<String, dynamic>> acompanhamentos;
 
   @override
@@ -20,6 +22,8 @@ class _AcompanhamentosState extends State<Acompanhamentos> {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
 
+    var cats = Acompanhamento.displayAcompanhamentos(widget.idPrato);
+
     return Container(
       margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 40 * fem, 0 * fem),
       width: 360 * fem,
@@ -31,7 +35,37 @@ class _AcompanhamentosState extends State<Acompanhamentos> {
       ),
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: Acompanhamento.displayAcompanhamentos(widget.acompanhamentos)
+        children:
+          [cats].expand((element) => element).toList()+
+          [
+            SizedBox(
+              width: 70 * fem,
+              height: 100 * fem,
+              child: Container(
+                color: Colors.redAccent,
+                child: MaterialButton(
+                  onPressed: () {
+                    setState(() {
+                      Product2.atualizarCampo(widget.idPrato, 'idAcompanhamentos', Acompanhamento.contador.toString());
+                      Acompanhamento.setAcompanhamentos({
+                        'id': '',
+                        'nome': '',
+                        'preco': 0.0,
+                        'imgUrl': 'polenta-frita'
+                      });
+                    });
+                  },
+                  color: const Color(0xffffd700),
+                  textColor: Colors.black,
+                  shape: const CircleBorder(),
+                  child: Icon(
+                    Icons.add,
+                    size: 28 * fem,
+                  ),
+                ),
+              ),
+            ),
+          ],
       ),
     );
   }

@@ -34,7 +34,7 @@ class RecuperacaoSenhaConfirmacao extends StatelessWidget {
                   decoration: TextDecoration.none),
               ),
               SizedBox(height: 220.0 * fem),
-              const Button(text: 'Enviar', route: '/login'),
+              Button(text: 'Enviar', route: '/login'),
             ],
           ),
         ),

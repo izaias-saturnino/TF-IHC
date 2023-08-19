@@ -22,7 +22,7 @@ class NovaSenha extends StatelessWidget {
               SizedBox(height: 16.0 * fem),
               const Input(inputTitle: 'Confirmar senha'),
               SizedBox(height: 300.0 * fem),
-              const Button(text: 'Enviar', route: '/recuperacao-senha'),
+              Button(text: 'Enviar', route: '/recuperacao-senha'),
             ],
           ),
         ),

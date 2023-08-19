@@ -12,16 +12,18 @@ import 'package:myapp/classes/classes.dart';
 class MontarPrato extends StatefulWidget {
   const MontarPrato({
     super.key,
+    required this.idPrato,
     required this.mealName,
     required this.ingredients,
-    required this.price,
+    required this.preco,
     required this.adicionais,
     required this.acompanhamentos
   });
 
+  final String idPrato;
   final String mealName;
-  final List<String> ingredients;
-  final double price;
+  final String ingredients;
+  final double preco;
   final List<Map<String, dynamic>> adicionais;
   final List<Map<String, dynamic>> acompanhamentos;
 
@@ -64,21 +66,28 @@ class _MontarPratoState extends State<MontarPrato> {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               PratoHeader(
+                                idPrato: widget.idPrato,
                                 mealName: widget.mealName,
-                                price: widget.price,
-                                ingredients: widget.ingredients,
+                                preco: widget.preco,
+                                ingredientes: widget.ingredients,
                               ),
-                              const PratoBarraCarrinho(),
+                              PratoBarraCarrinho(idPrato: widget.idPrato),
                             ],
                           ),
                         ),
                         const PratoSubtitulo(title: 'Adicionais'),
-                        TabelaAdicionais(adicionais: widget.adicionais),
+                        TabelaAdicionais(
+                          idPrato: widget.idPrato,
+                          adicionais: widget.adicionais
+                        ),
                         const PratoSubtitulo(title: 'Acompanhamentos'),
                       ],
                     ),
                   ),
-                  Acompanhamentos(acompanhamentos: widget.acompanhamentos),
+                  Acompanhamentos(
+                    idPrato: widget.idPrato,
+                    acompanhamentos: widget.acompanhamentos
+                  ),
                 ],
               ),
             ),

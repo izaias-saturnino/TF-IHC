@@ -12,42 +12,18 @@ class Carrinho extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-    // List<Product> availableItems = [
-    //   Product(1, 'Pizza calabresa', 'pizza-de-calabresa', ['Bacon', 'queijo', 'mussarela', 'tomate', 'orégano', 'cebola', 'azeite', 'azeitona', 'champignon'], 70.00, 'pizza'),
-    //   Product(2, 'Xis salada', 'hamburguer', ['Hamburguer', 'Queijo', 'Alface', 'Tomate', 'Maionese'], 30.00, 'hamburguer'),
-    //   Product(3, 'Vinho tinto', 'bebidas', [], 60.00, 'bebida'),
-    //   Product(4, 'Pastel de carne', 'pasteis', [], 15.00, 'pastel'),
-    //   Product(5, 'Pizza calabresa', 'pizza-de-calabresa', ['Calabresa', 'queijo', 'mussarela', 'orégano'], 70.00, 'pizza'),
-    // ];
-    //
-    // ItemList cardapio = ItemList();
-    //
-    // cardapio.items = [
-    //   {
-    //     'product': 2,
-    //     'quantidade': 1,
-    //     'acompanhamentos': {'id': 1, 'quantidade': 2},
-    //     'adicionais': {'id': 2, 'quantidade': 3}
-    //   },
-    //   {
-    //     'product': 3,
-    //     'quantidade': 1,
-    //     'acompanhamentos': {'id': 3, 'quantidade': 1},
-    //     'adicionais': {'id': 4, 'quantidade': 1}
-    //   }
-    // ];
-    //
-    // // TODO: função de display do carrinho
-    // var uiCardapio = cardapio.displayCardapio(availableItems, '');
-    // var uiCardapio = [];
+    String total = CarrinhoCompras.calcularTotal();
+
+    var cats = CarrinhoCompras.displayCarrinho();
     return PageStructure(
       pageName: 'Carrinho',
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children:
-            // [uiCardapio].expand((x) => x).toList()+
+            [cats].expand((x) => x).toList()+
             [Container(
+              margin: EdgeInsets.fromLTRB(0, 16*fem, 0, 0),
               padding: EdgeInsets.all(20.0 * fem),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -75,7 +51,7 @@ class Carrinho extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'R\$ 200,00',
+                        'R\$ $total',
                         style: SafeGoogleFont(
                           'Inter',
                           fontSize: 18 * ffem,
@@ -88,7 +64,7 @@ class Carrinho extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 10.0 * fem),
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Button(text: 'Fazer pagamento', route: '/status'),

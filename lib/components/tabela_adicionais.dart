@@ -5,9 +5,11 @@ import 'package:myapp/components/item_adicional.dart';
 class TabelaAdicionais extends StatefulWidget {
   const TabelaAdicionais({
     super.key,
+    required this.idPrato,
     required this.adicionais
   });
 
+  final String idPrato;
   final List<Map<String, dynamic>> adicionais;
 
   @override
@@ -20,7 +22,7 @@ class _TabelaAdicionaisState extends State<TabelaAdicionais> {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
 
-    var cats = Adicional.displayAdicionais(widget.adicionais);
+    var cats = Adicional.displayAdicionais(widget.idPrato);
 
     return Container(
       padding: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 1.5 * fem),
@@ -38,10 +40,12 @@ class _TabelaAdicionaisState extends State<TabelaAdicionais> {
             MaterialButton(
               onPressed: () {
                 setState(() {
+                  Product2.atualizarCampo(widget.idPrato, 'idAdicionais', Adicional.contador.toString());
                   Adicional.setAdicionais({
-                    'id': 'queijo',
-                    'nome': 'Queijo',
-                    'preco': 2.5
+                    'id': '',
+                    'nome': '',
+                    'preco': 0.0,
+                    'quantidade': 0
                   });
                 });
               },
@@ -58,15 +62,3 @@ class _TabelaAdicionaisState extends State<TabelaAdicionais> {
     );
   }
 }
-
-// List<Widget> displayAdicionais(List<Adicional> adicionais){
-//   List<Widget> cartWidgetList = [];
-//
-//   for(var adicional in adicionais){
-//     cartWidgetList.add(
-//       ItemAdicional(nome: adicional.name, preco: adicional.price),
-//     );
-//   }
-//
-//   return cartWidgetList;
-// }

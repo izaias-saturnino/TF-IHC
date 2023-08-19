@@ -31,13 +31,6 @@ class Input extends StatelessWidget {
               decoration: TextDecoration.none),
           ),
           SizedBox(height: 4.0 * fem),
-          // Container(
-          //   padding: EdgeInsets.symmetric(vertical: 20.0 * fem, horizontal: 0.0),
-          //   decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(20 * fem),
-          //     color: const Color(0xffffd700),
-          //   ),
-          // ),
           TextField(
             controller: _textController,
             decoration: InputDecoration(

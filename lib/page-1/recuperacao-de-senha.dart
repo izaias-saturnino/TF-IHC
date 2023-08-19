@@ -22,7 +22,7 @@ class RecuperacaoSenha extends StatelessWidget {
               SizedBox(height: 16.0 * fem),
               const Input(inputTitle: 'E-mail'),
               SizedBox(height: 391.0 * fem),
-              const Button(text: 'Enviar', route: '/recuperacao-senha-confirmacao'),
+              Button(text: 'Enviar', route: '/recuperacao-senha-confirmacao'),
             ],
           ),
         ),

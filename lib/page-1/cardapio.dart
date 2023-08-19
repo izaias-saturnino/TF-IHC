@@ -43,7 +43,7 @@ class _CardapioState extends State<Cardapio> {
                         'id': '',
                         'nome': '',
                         'imgUrl': 'pizza-de-calabresa',
-                        'ingredientes': [],
+                        'ingredientes': '',
                         'preco': 0.0,
                         'idCategoria': data['idCategoria'],
                         'idAdicionais': [],

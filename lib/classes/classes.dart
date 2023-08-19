@@ -5,17 +5,45 @@ import 'package:myapp/components/montar_prato.dart';
 import 'package:myapp/components/item_adicional.dart';
 import 'package:myapp/components/item_acompanhamento.dart';
 
-class User {
-  int id;
-  String name;
-  String email;
-  String password;
-  String access;
+class Usuario {
+  // int id;
+  // String name;
+  // String email;
+  // String password;
+  // String access;
+  //
+  // User(this.id, this.name, this.email, this.password, this.access);
+  //
+  // void changePassword(String password){
+  //   this.password = password;
+  // }
+  Usuario._();
+  static Usuario? _instance;
 
-  User(this.id, this.name, this.email, this.password, this.access);
+  static Usuario getInstance() {
+    _instance ??= Usuario._();
+    return _instance!;
+  }
 
-  void changePassword(String password){
-    this.password = password;
+  static int contador = 0;
+
+  // String id, String nome, String senha
+  // boolean admin
+  static List<Map<String, dynamic>> _usuarios = [];
+
+  static void adicionarUsuario(Map<String, dynamic> novoUsuario) {
+    novoUsuario['id'] = contador.toString();
+    _usuarios.add(novoUsuario);
+    print(novoUsuario);
+    contador++;
+  }
+
+  static void atualizarCampo(String idUsuario, String nomeCampo, String valorCampo) {
+    for (var usuario in _usuarios) {
+      if (usuario['id'] == idUsuario) {
+        usuario[nomeCampo] = valorCampo;
+      }
+    }
   }
 }
 
@@ -23,7 +51,7 @@ class CarrinhoCompras {
   CarrinhoCompras._();
 
   static String _nome = 'lelelelel';
-  static List<String> _comprados = [];
+  static List<Map<String, dynamic>> _comprados = [];
 
   static CarrinhoCompras? _instance;
 
@@ -37,9 +65,38 @@ class CarrinhoCompras {
     _nome = newParam;
   }
 
-  static List<String> get comprados => _comprados;
-  static void updateComprados(String novo) {
-    _comprados.add(novo);
+  // Valor igual ao de Product2
+  static List<Map<String, dynamic>> get comprados => _comprados;
+  static void adicionarAoCarrinho(String idPrato) {
+    Map<String, dynamic> prato = Product2.getPratoPorId(idPrato)!;
+    _comprados.add(prato);
+    print(_comprados);
+  }
+
+  static String calcularTotal() {
+    double total = 0.0;
+
+    for (var comprado in _comprados) {
+      total += comprado['preco'];
+
+      for (var idAdicional in comprado['idAdicionais']) {
+        Map<String, dynamic> adicional = Adicional.getAdicionalById(idAdicional)!;
+        total += adicional['quantidade'] * adicional['preco'];
+      }
+    }
+
+    return total.toString();
+  }
+
+  static List<Widget> displayCarrinho() {
+    List<Widget> widgets = [];
+
+    for (var comprado in _comprados) {
+      widgets.add(const SizedBox(height: 16));
+      widgets.add(ItemCard(prato: comprado));
+    }
+
+    return widgets;
   }
 }
 
@@ -93,15 +150,19 @@ class Adicional {
     return _instance!;
   }
 
-  // String id, String name, double preco
+  static int contador = 0;
+
+  // String id, String name, double preco, int quantidade
   static List<Map<String, dynamic>> _adicionais = [];
   static List<Map<String, dynamic>> adicionais = _adicionais;
   static void setAdicionais(Map<String, dynamic> novoAdicional) {
+    novoAdicional['id'] = contador.toString();
     _adicionais.add(novoAdicional);
+    contador++;
   }
 
   static Map<String, dynamic>? getAdicionalById(String id) {
-    for (Map<String, dynamic> adicional in adicionais) {
+    for (Map<String, dynamic> adicional in _adicionais) {
       if (adicional['id'] == id) {
         return adicional;
       }
@@ -110,14 +171,37 @@ class Adicional {
     return null;
   }
 
-  static List<Widget> displayAdicionais(List<Map<String, dynamic>> adicionais) {
-    List<Widget> widgets = [];
+  static void atualizarCampo(String idAdicional, String nomeCampo, String valorCampo) {
+    for (var adicional in _adicionais) {
+      if (adicional['id'] == idAdicional) {
+        if (nomeCampo == 'preco') {
+          adicional[nomeCampo] = double.parse(valorCampo);
+        } else if (nomeCampo == 'quantidade') {
+          adicional[nomeCampo] += int.parse(valorCampo);
+        } else {
+          adicional[nomeCampo] = valorCampo;
+        }
+        break;
+      }
+    }
+  }
 
-    for (var adicional in adicionais) {
-      widgets.add(ItemAdicional(
-        nome: adicional['nome'],
-        preco: adicional['preco'])
-      );
+  static List<Widget> displayAdicionais(String idPrato) {
+    List<Widget> widgets = [];
+    Map<String, dynamic>? prato = Product2.getPratoPorId(idPrato);
+    List<dynamic> idsAdicionais = prato!['idAdicionais'];
+
+    for (var adicional in _adicionais) {
+      if (idsAdicionais.contains(adicional['id'])) {
+        widgets.add(
+            ItemAdicional(
+              idAdicional: adicional['id'],
+              nome: adicional['nome'],
+              preco: adicional['preco'],
+              quantidade: adicional['quantidade']
+            )
+        );
+      }
     }
 
     return widgets;
@@ -132,12 +216,16 @@ class Acompanhamento {
     return _instance!;
   }
 
-  // String id, String name, double preco
+  static int contador = 0;
+
+  // String id, String nome, double preco
   // String imgUrl
   static List<Map<String, dynamic>> _acompanhamentos = [];
   static List<Map<String, dynamic>> acompanhamentos = _acompanhamentos;
   static void setAcompanhamentos(Map<String, dynamic> novoAdicional) {
+    novoAdicional['id'] = contador.toString();
     _acompanhamentos.add(novoAdicional);
+    contador++;
   }
 
   static Map<String, dynamic>? getAcompanhamentoById(String id) {
@@ -150,15 +238,33 @@ class Acompanhamento {
     return null;
   }
 
-  static List<Widget> displayAcompanhamentos(List<Map<String, dynamic>> acompanhamentos) {
-    List<Widget> widgets = [];
+  static void atualizarCampo(String idAcompanhamento, String nomeCampo, String valorCampo) {
+    for (var acompanhamento in _acompanhamentos) {
+      if (acompanhamento['id'] == idAcompanhamento) {
+        if (nomeCampo == 'preco') {
+          acompanhamento[nomeCampo] = double.parse(valorCampo);
+        } else {
+          acompanhamento[nomeCampo] = valorCampo;
+        }
+        break;
+      }
+    }
+  }
 
-    for (var acompanhamento in acompanhamentos) {
-      widgets.add(ItemAcompanhamento(
-          nome: acompanhamento['nome'],
-          pathImg: acompanhamento['imgUrl'],
-          preco: acompanhamento['preco'])
-      );
+  static List<Widget> displayAcompanhamentos(String idPrato) {
+    List<Widget> widgets = [];
+    Map<String, dynamic>? prato = Product2.getPratoPorId(idPrato);
+    List<dynamic> idsAcompanhamentos = prato!['idAcompanhamentos'];
+
+    for (var acompanhamento in _acompanhamentos) {
+      if (idsAcompanhamentos.contains(acompanhamento['id'])) {
+        widgets.add(ItemAcompanhamento(
+            idAcompanhamento: acompanhamento['id'],
+            nome: acompanhamento['nome'],
+            pathImg: acompanhamento['imgUrl'],
+            preco: acompanhamento['preco'])
+        );
+      }
     }
 
     return widgets;
@@ -176,7 +282,7 @@ class Product2 {
   static int prato_counter = 0;
 
   // String id, String nome, String imgUrl
-  // List<String> ingredientes, double preco, String idCategoria
+  // String ingredientes, double preco, String idCategoria
   // List<String> idAdicionais, List<String> idAcompanhamentos
   static List<Map<String, dynamic>> _pratos = [];
   static List<Map<String, dynamic>> get pratos => _pratos;
@@ -185,14 +291,28 @@ class Product2 {
     novoPrato['id'] = prato_counter.toString();
     _pratos.add(novoPrato);
     prato_counter++;
-    print(_pratos);
   }
 
-  static void atualizarUmPrato(String idPrato, String nomePrato) {
+  static Map<String, dynamic>? getPratoPorId(String idPrato) {
     for (var prato in _pratos) {
       if (prato['id'] == idPrato) {
-        prato['nome'] = nomePrato;
-        print(prato);
+        return prato;
+      }
+    }
+
+    return null;
+  }
+
+  static void atualizarCampo(String idPrato, String nomeCampo, String valorCampo) {
+    for (var prato in _pratos) {
+      if (prato['id'] == idPrato) {
+        if (nomeCampo == 'preco') {
+          prato[nomeCampo] = double.parse(valorCampo);
+        } else if (nomeCampo == 'idAdicionais' || nomeCampo == 'idAcompanhamentos') {
+          prato[nomeCampo].add(valorCampo.toString());
+        } else {
+          prato[nomeCampo] = valorCampo;
+        }
         break;
       }
     }
@@ -215,26 +335,27 @@ class Product2 {
 
   static List<Widget> displayPrato(String idPrato) {
     List<Widget> paginaPrato = [];
-    List<Map<String, dynamic>> adicionais = [];
-    List<Map<String, dynamic>> acompanhamentos = [];
 
-    for(Map<String, dynamic> prato in Product2.pratos){
-      for(String idAdicional in prato['idAdicionais']){
-        Map<String, dynamic>? adicional = Adicional.getAdicionalById(idAdicional);
-        if (adicional != null) adicionais.add(adicional);
-      }
-
-      for(String idAcompanhamento in prato['idAcompanhamentos']){
-        Map<String, dynamic>? acompanhamento = Acompanhamento.getAcompanhamentoById(idAcompanhamento);
-        if (acompanhamento != null) acompanhamentos.add(acompanhamento);
-      }
-
+    for(Map<String, dynamic> prato in _pratos){
       if (prato["id"] == idPrato) {
+        List<Map<String, dynamic>> adicionais = [];
+        for(String idAdicional in prato['idAdicionais']){
+          Map<String, dynamic>? adicional = Adicional.getAdicionalById(idAdicional);
+          if (adicional != null) adicionais.add(adicional);
+        }
+
+        List<Map<String, dynamic>> acompanhamentos = [];
+        for(String idAcompanhamento in prato['idAcompanhamentos']){
+          Map<String, dynamic>? acompanhamento = Acompanhamento.getAcompanhamentoById(idAcompanhamento);
+          if (acompanhamento != null) acompanhamentos.add(acompanhamento);
+        }
+
         paginaPrato.add(
           MontarPrato(
+            idPrato: prato['id'],
             mealName: prato['nome'],
             ingredients: prato['ingredientes'],
-            price: prato['preco'],
+            preco: prato['preco'],
             adicionais: adicionais,
             acompanhamentos: acompanhamentos
           )

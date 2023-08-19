@@ -126,22 +126,24 @@ class ItemCard extends StatelessWidget {
                         child: SizedBox(
                           width: 250*fem,
                           height: 30*fem,
-                          child:
-                          // Text(
-                          //   cardTitle,
-                          //   style: SafeGoogleFont (
-                          //       'Inter',
-                          //       fontSize: 24*ffem,
-                          //       fontWeight: FontWeight.w400,
-                          //       height: 1.2125*ffem/fem,
-                          //       color: const Color(0xff000000),
-                          //       decoration: TextDecoration.none
-                          //   ),
-                          // ),
-                          TextField(
+                          child: TextField(
                             controller: _valorInput,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20 * fem,
+                              fontWeight: FontWeight.w400,
+                              height: 1.2125 * ffem / fem,
+                              decoration: TextDecoration.none
+                            ),
                             decoration: InputDecoration(
                               hintText: 'Adicionar nome',
+                              hintStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 20 * fem,
+                                fontWeight: FontWeight.w400,
+                                height: 1.2125 * ffem / fem,
+                                decoration: TextDecoration.none
+                              ),
                               border: InputBorder.none,
                               suffixIcon: IconButton(
                                 onPressed: () {
@@ -151,10 +153,7 @@ class ItemCard extends StatelessWidget {
                                       _valorInput.text
                                     );
                                   } else {
-                                    Product2.atualizarUmPrato(
-                                      prato!['id'],
-                                      _valorInput.text
-                                    );
+                                    Product2.atualizarCampo(prato!['id'], 'nome', _valorInput.text);
                                   }
                                 },
                                 // TODO: ao invés de clicar no check e atualizar o item,
