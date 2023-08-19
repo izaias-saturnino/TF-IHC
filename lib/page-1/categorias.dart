@@ -8,30 +8,7 @@ class Categorias extends StatefulWidget {
 }
 
 class _CategoriasState extends State<Categorias> {
-
-  List<Map<String, dynamic>> list = [
-    {
-      'id': 'pizza',
-      'nome': 'Pizzas',
-      'imgUrl': 'pizza-de-calabresa'
-    },
-    {
-      'id': 'hamburguer',
-      'nome': 'Lanches',
-      'imgUrl': 'hamburguer'
-    },
-    {
-      'id': 'pastel',
-      'nome': 'Pastéis',
-      'imgUrl': 'pasteis'
-    },
-    {
-      'id': 'bebida',
-      'nome': 'Bebidas',
-      'imgUrl': 'bebidas'
-    }
-  ];
-
+  bool ehAdmin = Usuario.usuarioAtual['admin'];
   int counter = 0;
 
   @override
@@ -39,38 +16,13 @@ class _CategoriasState extends State<Categorias> {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
 
-    int counter = 0;
-
-    List<Map<String, dynamic>> list = [
-      {
-        'id': 'pizza',
-        'nome': 'Pizzas',
-        'imgUrl': 'pizza-de-calabresa'
-      },
-      {
-        'id': 'hamburguer',
-        'nome': 'Lanches',
-        'imgUrl': 'hamburguer'
-      },
-      {
-        'id': 'pastel',
-        'nome': 'Pastéis',
-        'imgUrl': 'pasteis'
-      },
-      {
-        'id': 'bebida',
-        'nome': 'Bebidas',
-        'imgUrl': 'bebidas'
-      }
-    ];
-
     var cats = Category2.displayCategorias();
     return PageStructure(
       pageName: 'Categorias',
       children:
         [cats].expand((element) => element).toList()+
         [
-          SizedBox(
+          ehAdmin ? SizedBox(
             width: 60 * fem,
             height: 100 * fem,
             child: MaterialButton(
@@ -91,7 +43,7 @@ class _CategoriasState extends State<Categorias> {
                 size: 28 * fem,
               ),
             ),
-          ),
+          ) : Container(),
         ],
     );
   }

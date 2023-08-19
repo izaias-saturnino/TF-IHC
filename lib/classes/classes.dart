@@ -28,14 +28,23 @@ class Usuario {
   static int contador = 0;
 
   // String id, String nome, String senha
-  // boolean admin
+  // boolean admin, String email
   static List<Map<String, dynamic>> _usuarios = [];
 
   static void adicionarUsuario(Map<String, dynamic> novoUsuario) {
     novoUsuario['id'] = contador.toString();
     _usuarios.add(novoUsuario);
-    print(novoUsuario);
+    usuarioAtual = novoUsuario;
     contador++;
+  }
+
+  static void atualizarSenha(String email, String novaSenha) {
+    for (var usuario in _usuarios) {
+      if (usuario['email'] == email) {
+        usuario['senha'] = novaSenha;
+        break;
+      }
+    }
   }
 
   static void atualizarCampo(String idUsuario, String nomeCampo, String valorCampo) {
@@ -44,6 +53,35 @@ class Usuario {
         usuario[nomeCampo] = valorCampo;
       }
     }
+  }
+
+  static Map<String, dynamic> usuarioAtual = {};
+  static void salvarUsuarioAtual(String nome, String senha) {
+    for (var usuario in _usuarios) {
+      if (usuario['nome'] == nome && usuario['senha'] == senha) {
+        usuarioAtual = usuario;
+      }
+    }
+  }
+
+  static bool procurarEmail(String email) {
+    for (var usuario in _usuarios) {
+      if (usuario['email'] == email) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  static bool procurarUsuario(String nome, String senha) {
+    for (var usuario in _usuarios) {
+      if (usuario['nome'] == nome && usuario['senha'] == senha) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }
 
@@ -82,6 +120,11 @@ class CarrinhoCompras {
       for (var idAdicional in comprado['idAdicionais']) {
         Map<String, dynamic> adicional = Adicional.getAdicionalById(idAdicional)!;
         total += adicional['quantidade'] * adicional['preco'];
+      }
+
+      for (var idAcompanhamento in comprado['idAcompanhamentos']) {
+        Map<String, dynamic> acompanhamento = Acompanhamento.getAcompanhamentoById(idAcompanhamento)!;
+        total += acompanhamento['preco'];
       }
     }
 

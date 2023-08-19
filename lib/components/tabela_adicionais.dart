@@ -17,6 +17,8 @@ class TabelaAdicionais extends StatefulWidget {
 }
 
 class _TabelaAdicionaisState extends State<TabelaAdicionais> {
+  bool ehAdmin = Usuario.usuarioAtual['admin'];
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -37,26 +39,29 @@ class _TabelaAdicionaisState extends State<TabelaAdicionais> {
         children:
           [cats].expand((element) => element).toList()+
           [
-            MaterialButton(
-              onPressed: () {
-                setState(() {
-                  Product2.atualizarCampo(widget.idPrato, 'idAdicionais', Adicional.contador.toString());
-                  Adicional.setAdicionais({
-                    'id': '',
-                    'nome': '',
-                    'preco': 0.0,
-                    'quantidade': 0
+            ehAdmin ? Container(
+              margin: EdgeInsets.symmetric(vertical: 5*fem),
+              child: MaterialButton(
+                onPressed: () {
+                  setState(() {
+                    Product2.atualizarCampo(widget.idPrato, 'idAdicionais', Adicional.contador.toString());
+                    Adicional.setAdicionais({
+                      'id': '',
+                      'nome': '',
+                      'preco': 0.0,
+                      'quantidade': 0
+                    });
                   });
-                });
-              },
-              color: const Color(0xffffd700),
-              textColor: Colors.black,
-              shape: const CircleBorder(),
-              child: Icon(
-                Icons.add,
-                size: 28 * fem,
+                },
+                color: const Color(0xffffd700),
+                textColor: Colors.black,
+                shape: const CircleBorder(),
+                child: Icon(
+                  Icons.add,
+                  size: 24 * fem,
+                ),
               ),
-            ),
+            ) : Container(),
           ],
       ),
     );

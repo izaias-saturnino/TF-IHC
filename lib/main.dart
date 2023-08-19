@@ -25,17 +25,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  // ItemList allProducts = ItemList();
-  // ItemList cart = ItemList();
-
-  // onPressed(): (){
-  //   setState(() {
-  //      cart.removeFromList(p)
-  //   });
-  // }
-
-  //children: displayCategories(allProducts.categories()),
-
 	@override
 	Widget build(BuildContext context) {
 		return MaterialApp(

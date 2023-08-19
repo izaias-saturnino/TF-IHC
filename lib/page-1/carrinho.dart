@@ -29,6 +29,8 @@ class Carrinho extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(16.0 * fem),
                   topRight: Radius.circular(16.0 * fem),
+                  bottomLeft: Radius.circular(16.0 * fem),
+                  bottomRight: Radius.circular(16.0 * fem)
                 ),
                 color: const Color(0xffb22222),
               ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/utils.dart';
 import 'package:myapp/classes/classes.dart';
 
-class ItemCard extends StatelessWidget {
+class ItemCard extends StatefulWidget {
   const ItemCard({
     super.key,
     this.categoria,
@@ -13,41 +13,48 @@ class ItemCard extends StatelessWidget {
   final Map<String, dynamic>? prato;
 
   @override
+  State<ItemCard> createState() => _ItemCardState();
+}
+
+class _ItemCardState extends State<ItemCard> {
+  bool ehAdmin = Usuario.usuarioAtual['admin'];
+
+  @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
     String pathImg = 'assets/page-1/images/';
-    if (categoria != null) {
-      pathImg += '${categoria!['imgUrl']}.png';
+    if (widget.categoria != null) {
+      pathImg += '${widget.categoria!['imgUrl']}.png';
     } else {
-      pathImg += '${prato!['imgUrl']}.png';
+      pathImg += '${widget.prato!['imgUrl']}.png';
     }
 
     String cardTitle = '';
-    if (categoria != null) {
-      cardTitle = categoria!['nome'];
+    if (widget.categoria != null) {
+      cardTitle = widget.categoria!['nome'];
     } else {
-      cardTitle = prato!['nome'];
+      cardTitle = widget.prato!['nome'];
     }
 
     final _valorInput = TextEditingController(text: cardTitle);
 
     return TextButton(
       onPressed: () {
-        if (categoria != null) {
+        if (widget.categoria != null) {
           Navigator.pushNamed(
             context,
             '/cardapio',
-            arguments: { 'idCategoria': categoria!['id'] }
+            arguments: { 'idCategoria': widget.categoria!['id'] }
           );
         }
         else {
           Navigator.pushNamed(
             context,
             '/prato',
-            arguments: { 'idPrato': prato!['id'] }
+            arguments: { 'idPrato': widget.prato!['id'] }
           );
         }
       },
@@ -109,7 +116,7 @@ class ItemCard extends StatelessWidget {
                           height: 115*fem,
                           child: Container(
                             decoration: BoxDecoration (
-                              color: categoria != null ? const Color(0xffd1a000): const Color(0xffffd700),
+                              color: widget.categoria != null ? const Color(0xffd1a000): const Color(0xffffd700),
                               borderRadius: BorderRadius.only (
                                 topLeft: Radius.circular(10*fem),
                                 bottomLeft: Radius.circular(10*fem),
@@ -127,7 +134,22 @@ class ItemCard extends StatelessWidget {
                           width: 250*fem,
                           height: 30*fem,
                           child: TextField(
+                            enabled: ehAdmin,
                             controller: _valorInput,
+                            onChanged: (text) {
+                              if (widget.categoria != null) {
+                                Category2.atualizarUmaCategoria(
+                                  widget.categoria!['id'],
+                                  text
+                                );
+                              } else {
+                                Product2.atualizarCampo(
+                                  widget.prato!['id'],
+                                  'nome',
+                                  text
+                                );
+                              }
+                            },
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 20 * fem,
@@ -145,22 +167,6 @@ class ItemCard extends StatelessWidget {
                                 decoration: TextDecoration.none
                               ),
                               border: InputBorder.none,
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  if (categoria != null) {
-                                    Category2.atualizarUmaCategoria(
-                                      categoria!['id'],
-                                      _valorInput.text
-                                    );
-                                  } else {
-                                    Product2.atualizarCampo(prato!['id'], 'nome', _valorInput.text);
-                                  }
-                                },
-                                // TODO: ao invés de clicar no check e atualizar o item,
-                                // poderia pegar o evento de atualização e usar um debounce
-                                // para atualizar e retirar o ícone de check
-                                icon: const Icon(Icons.check),
-                              ),
                             ),
                           ),
                         ),

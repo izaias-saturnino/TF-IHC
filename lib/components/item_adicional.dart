@@ -18,15 +18,20 @@ class ItemAdicional extends StatefulWidget {
   final int quantidade;
 
   @override
-  State<ItemAdicional> createState() => _ItemAdicionalState(quantidade, preco);
+  State<ItemAdicional> createState() => _ItemAdicionalState(quantidade, preco, nome);
 }
 
 class _ItemAdicionalState extends State<ItemAdicional> {
   int localQuantidade = 0;
   double localPreco = 0.0;
-  _ItemAdicionalState(int quantidade, double preco) {
+
+  var _nomeAdicional = TextEditingController();
+  var _valorPreco = TextEditingController();
+
+  _ItemAdicionalState(int quantidade, double preco, String nome) {
     localQuantidade = quantidade;
-    // localPreco = preco;
+    _valorPreco.text = preco.toString();
+    _nomeAdicional.text = nome;
   }
 
   @override
@@ -34,9 +39,7 @@ class _ItemAdicionalState extends State<ItemAdicional> {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-
-    final _nomeAdicional = TextEditingController(text: widget.nome);
-    var _valorPreco = TextEditingController(text: widget.preco.toString());
+    bool ehAdmin = Usuario.usuarioAtual['admin'];
 
     return Container(
       width: double.infinity,
@@ -50,17 +53,20 @@ class _ItemAdicionalState extends State<ItemAdicional> {
           SizedBox(
             height: double.infinity,
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                   SizedBox(
                     width: 150*fem,
-                    height: 30*fem,
+                    height: 25*fem,
                     child: Container(
                       padding: EdgeInsets.fromLTRB(7*fem, 0*fem, 10*fem, 0),
-                      color: Colors.amber,
                       child: TextField(
                         controller: _nomeAdicional,
+                        enabled: ehAdmin,
+                        onChanged: (text) {
+                          Adicional.atualizarCampo(widget.idAdicional, 'nome', text);
+                        },
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16 * ffem,
@@ -69,25 +75,16 @@ class _ItemAdicionalState extends State<ItemAdicional> {
                             decoration: TextDecoration.none
                         ),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.zero,
+                          contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 14*fem),
                           hintText: 'Adicionar nome',
                           hintStyle: TextStyle(
                               fontSize: 16 * ffem,
-                              color: Colors.grey[400],
+                              color: Colors.grey[800],
                               fontWeight: FontWeight.w400,
                               height: 1.2125 * ffem / fem,
                               decoration: TextDecoration.none
                           ),
                           border: InputBorder.none,
-                          suffixIcon: IconButton(
-                            onPressed: () {
-                              Adicional.atualizarCampo(widget.idAdicional, 'nome', _nomeAdicional.text);
-                            },
-                            icon: Icon(
-                              Icons.check,
-                              size: 20*ffem,
-                            ),
-                          ),
                         ),
                       ),
                     ),
@@ -96,7 +93,6 @@ class _ItemAdicionalState extends State<ItemAdicional> {
                     width: 20*fem,
                     height: 30*fem,
                     child: Container(
-                      color: Colors.greenAccent,
                       child: Center(
                         child: TextButton(
                           onPressed: () {
@@ -107,20 +103,24 @@ class _ItemAdicionalState extends State<ItemAdicional> {
                               }
                             });
                           },
-                          child: Icon(
-                            Icons.remove,
-                            color: Colors.black,
-                            size: 20 * fem
+                          child: Text(
+                            '-',
+                            style: SafeGoogleFont (
+                              'Inter',
+                              fontSize: 20*ffem,
+                              fontWeight: FontWeight.w600,
+                              height: 1.3*ffem/fem,
+                              color: Colors.redAccent[400],
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: 10*fem,
+                    width: 5*fem,
                     height: 30*fem,
                     child: Container(
-                      color: Colors.blueAccent,
                       child: Center(
                         child: Text(
                           '|',
@@ -136,10 +136,9 @@ class _ItemAdicionalState extends State<ItemAdicional> {
                     ),
                   ),
                   SizedBox(
-                    width: 30*fem,
+                    width: 25*fem,
                     height: 30*fem,
                     child: Container(
-                      color: Colors.redAccent,
                       child: Center(
                         child: Text(
                           localQuantidade.toString(),
@@ -155,10 +154,9 @@ class _ItemAdicionalState extends State<ItemAdicional> {
                     ),
                   ),
                   SizedBox(
-                    width: 10*fem,
+                    width: 5*fem,
                     height: 30*fem,
                     child: Container(
-                      color: Colors.blueAccent,
                       child: Center(
                         child: Text(
                           '|',
@@ -177,7 +175,6 @@ class _ItemAdicionalState extends State<ItemAdicional> {
                     width: 20*fem,
                     height: 30*fem,
                     child: Container(
-                      color: Colors.greenAccent,
                       child: Center(
                         child: TextButton(
                           onPressed: () {
@@ -186,10 +183,15 @@ class _ItemAdicionalState extends State<ItemAdicional> {
                               localQuantidade++;
                             });
                           },
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.black,
-                            size: 20 * fem
+                          child: Text(
+                            '+',
+                            style: SafeGoogleFont (
+                              'Inter',
+                              fontSize: 20*ffem,
+                              fontWeight: FontWeight.w600,
+                              height: 1.3*ffem/fem,
+                              color: Colors.greenAccent[400],
+                            ),
                           ),
                         ),
                       ),
@@ -200,11 +202,11 @@ class _ItemAdicionalState extends State<ItemAdicional> {
                     height: 30*fem,
                   ),
                   SizedBox(
-                    width: 30*fem,
+                    width: 70*fem,
                     height: 30*fem,
                     child: Container(
+                      margin: EdgeInsets.fromLTRB(35*fem, 0, 0, 0),
                       padding: EdgeInsets.fromLTRB(0, 3*fem, 0, 0),
-                      color: Colors.blueAccent,
                       child: Center(
                         child: Text(
                           'R\$',
@@ -220,14 +222,18 @@ class _ItemAdicionalState extends State<ItemAdicional> {
                     ),
                   ),
                   SizedBox(
-                    width: 65*fem,
+                    width: 45*fem,
                     height: 30*fem,
                     child: Container(
-                      padding: EdgeInsets.fromLTRB(3*fem, 0, 0, 0),
-                      color: Colors.greenAccent,
+                      // padding: EdgeInsets.fromLTRB(3*fem, 30*fem, 0, 10*fem),
                       child: Center(
                         child: TextField(
                           controller: _valorPreco,
+                          enabled: ehAdmin,
+                          onChanged: (text) {
+                            Adicional.atualizarCampo(widget.idAdicional, 'preco', text);
+                            localPreco = widget.preco;
+                          },
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 16 * ffem,
@@ -236,20 +242,8 @@ class _ItemAdicionalState extends State<ItemAdicional> {
                               decoration: TextDecoration.none
                           ),
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.zero,
+                            contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 14*fem),
                             border: InputBorder.none,
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                // setState(() {
-                                  Adicional.atualizarCampo(widget.idAdicional, 'preco', _valorPreco.text);
-                                  localPreco = widget.preco;
-                                // });
-                              },
-                              icon: Icon(
-                                Icons.check,
-                                size: 17*ffem
-                              ),
-                            ),
                           ),
                         ),
                       ),

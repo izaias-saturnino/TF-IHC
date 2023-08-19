@@ -17,6 +17,8 @@ class Acompanhamentos extends StatefulWidget {
 }
 
 class _AcompanhamentosState extends State<Acompanhamentos> {
+  bool ehAdmin = Usuario.usuarioAtual['admin'];
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -28,7 +30,7 @@ class _AcompanhamentosState extends State<Acompanhamentos> {
       margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 40 * fem, 0 * fem),
       width: 360 * fem,
       //double.infinity,
-      height: 164 * fem,
+      height: 170 * fem,
       decoration: BoxDecoration(
         border: Border.all(color: const Color(0x7f000000)),
         color: const Color(0xffebebeb),
@@ -38,11 +40,11 @@ class _AcompanhamentosState extends State<Acompanhamentos> {
         children:
           [cats].expand((element) => element).toList()+
           [
-            SizedBox(
+            ehAdmin ? SizedBox(
               width: 70 * fem,
               height: 100 * fem,
               child: Container(
-                color: Colors.redAccent,
+                margin: EdgeInsets.fromLTRB(10*fem, 0, 0, 0),
                 child: MaterialButton(
                   onPressed: () {
                     setState(() {
@@ -64,25 +66,9 @@ class _AcompanhamentosState extends State<Acompanhamentos> {
                   ),
                 ),
               ),
-            ),
+            ) : Container(),
           ],
       ),
     );
   }
 }
-
-// List<Widget> displayAcompanhamentos(List<Product> acompanhamentos){
-//   List<Widget> widgets = [];
-//
-//   for(var acompanhamento in acompanhamentos){
-//     widgets.add(
-//       ItemAcompanhamento(
-//         nome: acompanhamento.name,
-//         preco: acompanhamento.price,
-//         pathImg: acompanhamento.imgUrl,
-//       ),
-//     );
-//   }
-//
-//   return widgets;
-// }

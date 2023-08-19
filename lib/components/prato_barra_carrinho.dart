@@ -40,76 +40,61 @@ class PratoBarraCarrinho extends StatelessWidget {
             children: [
               SizedBox(
                 width: 50 * fem,
-                child: Container(
-                  color: Colors.redAccent,
-                  child: Center(
-                    child: Text(
-                      '+',
-                      style: TextStyle(
-                        fontSize: 30 * ffem
-                      ),
+                child: Center(
+                  child: Text(
+                    '+',
+                    style: TextStyle(
+                      fontSize: 30 * ffem
                     ),
                   ),
                 ),
               ),
               SizedBox(
                 width: 10 * fem,
-                child: Container(
-                  color: Colors.blueAccent,
-                  child: Center(
-                    child: Container(
-                      width: 0.5 * fem,
-                      height: 30 * fem,
-                      decoration: const BoxDecoration(
-                        color: Color(0xff000000),
-                      ),
+                child: Center(
+                  child: Container(
+                    width: 0.5 * fem,
+                    height: 30 * fem,
+                    decoration: const BoxDecoration(
+                      color: Color(0xff000000),
                     ),
                   ),
                 ),
               ),
               SizedBox(
                 width: 80 * fem,
-                child: Container(
-                  color: Colors.greenAccent,
-                  child: Center(
-                    child: TextButton(
-                      onPressed: () {
-                        CarrinhoCompras.adicionarAoCarrinho(idPrato);
-                      },
-                      child: Icon(
-                        Icons.shopping_cart_outlined,
-                        color: Colors.black,
-                        size: 30 * fem
-                      ),
+                child: Center(
+                  child: TextButton(
+                    onPressed: () {
+                      CarrinhoCompras.adicionarAoCarrinho(idPrato);
+                    },
+                    child: Icon(
+                      Icons.shopping_cart_outlined,
+                      color: Colors.black,
+                      size: 30 * fem
                     ),
                   ),
                 ),
               ),
               SizedBox(
                 width: 10 * fem,
-                child: Container(
-                  color: Colors.blueAccent,
-                  child: Center(
-                    child: Container(
-                      width: 0.5 * fem,
-                      height: 30 * fem,
-                      decoration: const BoxDecoration(
-                        color: Color(0xff000000),
-                      ),
+                child: Center(
+                  child: Container(
+                    width: 0.5 * fem,
+                    height: 30 * fem,
+                    decoration: const BoxDecoration(
+                      color: Color(0xff000000),
                     ),
                   ),
                 ),
               ),
               SizedBox(
                 width: 50 * fem,
-                child: Container(
-                  color: Colors.redAccent,
-                  child: Center(
-                    child: Text(
-                      '-',
-                      style: TextStyle(
-                          fontSize: 30 * ffem
-                      ),
+                child: Center(
+                  child: Text(
+                    '-',
+                    style: TextStyle(
+                        fontSize: 30 * ffem
                     ),
                   ),
                 ),
