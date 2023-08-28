@@ -75,16 +75,16 @@ class _MontarPratoState extends State<MontarPrato> {
                             ],
                           ),
                         ),
-                        widget.adicionais.isNotEmpty ? const PratoSubtitulo(title: 'Adicionais') : Container(),
-                        widget.adicionais.isNotEmpty ? TabelaAdicionais(
+                        widget.adicionais.isNotEmpty || Usuario.usuarioAtual['admin'] ? const PratoSubtitulo(title: 'Adicionais') : Container(),
+                        widget.adicionais.isNotEmpty || Usuario.usuarioAtual['admin'] ? TabelaAdicionais(
                           idPrato: widget.idPrato,
                           adicionais: widget.adicionais
                         ) : Container(),
-                        widget.acompanhamentos.isNotEmpty ? const PratoSubtitulo(title: 'Acompanhamentos') : Container(),
+                        widget.acompanhamentos.isNotEmpty || Usuario.usuarioAtual['admin'] ? const PratoSubtitulo(title: 'Acompanhamentos') : Container(),
                       ],
                     ),
                   ),
-                  widget.acompanhamentos.isNotEmpty ? Acompanhamentos(
+                  widget.acompanhamentos.isNotEmpty || Usuario.usuarioAtual['admin'] ? Acompanhamentos(
                     idPrato: widget.idPrato,
                     acompanhamentos: widget.acompanhamentos
                   ) : Container(),

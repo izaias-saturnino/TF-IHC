@@ -16,11 +16,14 @@ class _CategoriasState extends State<Categorias> {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
 
-    if (Category2.categorias.isEmpty && Usuario.usuarioAtual['admin'] == false) {
-      Category2.setCategorias({'id': '', 'nome': 'PIZZAS', 'imgUrl': 'img-icon'});
-      Category2.setCategorias({'id': '', 'nome': 'PASTÉIS', 'imgUrl': 'img-icon'});
-      Category2.setCategorias({'id': '', 'nome': 'BEBIDAS', 'imgUrl': 'img-icon'});
-    }
+    // if (Category2.categorias.isEmpty && Usuario.usuarioAtual['admin'] == false) {
+    //   Category2.setCategorias({'id': '', 'nome': 'PIZZAS', 'imgUrl': 'img-icon'});
+    //   Category2.setCategorias({'id': '', 'nome': 'PASTÉIS', 'imgUrl': 'img-icon'});
+    //   Category2.setCategorias({'id': '', 'nome': 'BEBIDAS', 'imgUrl': 'img-icon'});
+    // } else {
+    //   // TODO: limpar singletons
+    //   Category2.limparCategorias();
+    // }
 
     var cats = Category2.displayCategorias();
     return PageStructure(

@@ -78,11 +78,282 @@ class Usuario {
   static bool procurarUsuario(String nome, String senha) {
     for (var usuario in _usuarios) {
       if (usuario['nome'] == nome && usuario['senha'] == senha) {
+        // mockarDados();
         return true;
       }
     }
 
+    // limparDados();
     return false;
+  }
+
+  static limparDados() {
+    Category2.limparCategorias();
+    Adicional.limpar();
+    Acompanhamento.limpar();
+    Product2.limpar();
+    CarrinhoCompras.limpar();
+  }
+
+  static mockarDados() {
+    Category2.setCategorias({'id': '', 'nome': 'PIZZAS', 'imgUrl': 'img-icon'});
+    Category2.setCategorias({'id': '', 'nome': 'PASTÉIS', 'imgUrl': 'img-icon'});
+    Category2.setCategorias({'id': '', 'nome': 'BEBIDAS', 'imgUrl': 'img-icon'});
+    Product2.setPratos({
+      'id': '', //0
+      'nome': 'Pizza de calabresa',
+      'imgUrl': 'img-icon',
+      'ingredientes': 'calabresa, queijo e molho de tomate',
+      'preco': 30.0,
+      'marcadoComparacao': false,
+      'idCategoria': '0',
+      'idAdicionais': ['0','1'],
+      'idAcompanhamentos': ['0','1']
+    });
+    Adicional.setAdicionais({
+      'id': '', //'0'
+      'nome': 'Queijo',
+      'preco': 1.0,
+      'quantidade': 0
+    });
+    Adicional.setAdicionais({
+      'id': '', //'1'
+      'nome': 'Tomate',
+      'preco': 0.5,
+      'quantidade': 0
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'0'
+      'nome': 'Batata frita',
+      'preco': 4.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'1'
+      'nome': 'Polenta frita',
+      'preco': 5.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+
+    Product2.setPratos({
+      'id': '', //1
+      'nome': 'Pizza siciliana',
+      'imgUrl': 'img-icon',
+      'ingredientes': 'salame italiano, queijo e molho de tomate',
+      'preco': 35.0,
+      'marcadoComparacao': false,
+      'idCategoria': '0',
+      'idAdicionais': ['2','3'],
+      'idAcompanhamentos': ['2','3']
+    });
+    Adicional.setAdicionais({
+      'id': '', //'2'
+      'nome': 'Orégano',
+      'preco': 0.7,
+      'quantidade': 0
+    });
+    Adicional.setAdicionais({
+      'id': '', //'3'
+      'nome': 'Parmesão',
+      'preco': 1.0,
+      'quantidade': 0
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'2'
+      'nome': 'Batata frita',
+      'preco': 4.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'3'
+      'nome': 'Polenta frita',
+      'preco': 5.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+
+    Product2.setPratos({
+      'id': '', //2
+      'nome': 'Pizza 4 queijos',
+      'imgUrl': 'img-icon',
+      'ingredientes': 'queijo mussarela, queijo parmesão, queijo cheddar, queijo brie e molho de tomate',
+      'preco': 32.0,
+      'marcadoComparacao': false,
+      'idCategoria': '0',
+      'idAdicionais': ['4','5'],
+      'idAcompanhamentos': ['4','5']
+    });
+    Adicional.setAdicionais({
+      'id': '', //'4'
+      'nome': 'Brie',
+      'preco': 2.0,
+      'quantidade': 0
+    });
+    Adicional.setAdicionais({
+      'id': '', //'5'
+      'nome': 'Cheddar',
+      'preco': 1.5,
+      'quantidade': 0
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'4'
+      'nome': 'Batata frita',
+      'preco': 4.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'5'
+      'nome': 'Polenta frita',
+      'preco': 5.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+
+    Product2.setPratos({
+      'id': '', //3
+      'nome': 'Pastel de carne',
+      'imgUrl': 'img-icon',
+      'ingredientes': 'carne moída, ovo e temperinho',
+      'preco': 12.0,
+      'marcadoComparacao': false,
+      'idCategoria': '1',
+      'idAdicionais': ['6','7'],
+      'idAcompanhamentos': ['6','7']
+    });
+    Adicional.setAdicionais({
+      'id': '',//'6'
+      'nome': 'Carne',
+      'preco': 1.2,
+      'quantidade': 0
+    });
+    Adicional.setAdicionais({
+      'id': '',//'7'
+      'nome': 'Ovo',
+      'preco': 1.0,
+      'quantidade': 0
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'6'
+      'nome': 'Batata frita',
+      'preco': 4.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'7'
+      'nome': 'Polenta frita',
+      'preco': 5.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+
+    Product2.setPratos({
+      'id': '', //4
+      'nome': 'Pastel de frango',
+      'imgUrl': 'img-icon',
+      'ingredientes': 'Frango e temperinho',
+      'preco': 12.0,
+      'marcadoComparacao': false,
+      'idCategoria': '1',
+      'idAdicionais': ['8','9'],
+      'idAcompanhamentos': ['8','9']
+    });
+    Adicional.setAdicionais({
+      'id': '',//'8'
+      'nome': 'Frango',
+      'preco': 1.2,
+      'quantidade': 0
+    });
+    Adicional.setAdicionais({
+      'id': '',//'9'
+      'nome': 'Temperinho',
+      'preco': 0.4,
+      'quantidade': 0
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'8'
+      'nome': 'Batata frita',
+      'preco': 4.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'9'
+      'nome': 'Polenta frita',
+      'preco': 5.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+
+    Product2.setPratos({
+      'id': '', //5
+      'nome': 'Pastel de chocolate',
+      'imgUrl': 'img-icon',
+      'ingredientes': 'chocolate',
+      'preco': 15.0,
+      'marcadoComparacao': false,
+      'idCategoria': '1',
+      'idAdicionais': ['10'],
+      'idAcompanhamentos': ['10', '11']
+    });
+    Adicional.setAdicionais({
+      'id': '',//'10'
+      'nome': 'Chocolate',
+      'preco': 1.5,
+      'quantidade': 0
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'10'
+      'nome': 'Mousse de chocolate',
+      'preco': 4.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+    Acompanhamento.setAcompanhamentos({
+      'id': '',//'11'
+      'nome': 'Cupcake',
+      'preco': 5.0,
+      'escolhido': false,
+      'imgUrl': 'img-icon'
+    });
+
+    Product2.setPratos({
+      'id': '', //6
+      'nome': 'Água com gás',
+      'imgUrl': 'img-icon',
+      'ingredientes': 'água',
+      'preco': 5.0,
+      'marcadoComparacao': false,
+      'idCategoria': '2',
+      'idAdicionais': [],
+      'idAcompanhamentos': []
+    });
+    Product2.setPratos({
+      'id': '', //7
+      'nome': 'Água sem gás',
+      'imgUrl': 'img-icon',
+      'ingredientes': 'água',
+      'preco': 4.0,
+      'marcadoComparacao': false,
+      'idCategoria': '2',
+      'idAdicionais': [],
+      'idAcompanhamentos': []
+    });
+    Product2.setPratos({
+      'id': '', //8
+      'nome': 'Refrigerante',
+      'imgUrl': 'img-icon',
+      'ingredientes': 'muito açucar',
+      'preco': 6.0,
+      'marcadoComparacao': false,
+      'idCategoria': '2',
+      'idAdicionais': [],
+      'idAcompanhamentos': []
+    });
   }
 }
 
@@ -150,6 +421,10 @@ class CarrinhoCompras {
 
     return widgets;
   }
+
+  static void limpar() {
+    _comprados = [];
+  }
 }
 
 class Category2 {
@@ -191,6 +466,10 @@ class Category2 {
     widgets.add(const SizedBox(height: 16));
 
     return widgets;
+  }
+
+  static void limparCategorias() {
+    _categorias = [];
   }
 }
 
@@ -257,6 +536,10 @@ class Adicional {
     }
 
     return widgets;
+  }
+
+  static void limpar() {
+    _adicionais = [];
   }
 }
 
@@ -325,6 +608,10 @@ class Acompanhamento {
     }
 
     return widgets;
+  }
+
+  static void limpar() {
+    _acompanhamentos = [];
   }
 }
 
@@ -460,5 +747,9 @@ class Product2 {
     }
 
     return paginaPrato;
+  }
+
+  static void limpar() {
+    _pratos = [];
   }
 }

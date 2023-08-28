@@ -54,7 +54,7 @@ class _AcompanhamentosState extends State<Acompanhamentos> {
                         'nome': '',
                         'preco': 0.0,
                         'escolhido': false,
-                        'imgUrl': 'polenta-frita'
+                        'imgUrl': 'img-icon'
                       });
                     });
                   },
