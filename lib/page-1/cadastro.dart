@@ -22,6 +22,7 @@ class _CadastroState extends State<Cadastro> {
   bool ehAdmin = false;
   bool clicou = false;
   bool emailJaExiste = false;
+  bool pressionou = false;
   var usuarioController = TextEditingController();
   var senhaController = TextEditingController();
   var confirmarSenhaController = TextEditingController();

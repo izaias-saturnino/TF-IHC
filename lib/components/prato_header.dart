@@ -147,7 +147,7 @@ class _PratoHeaderState extends State<PratoHeader> {
             height: 171 * fem,
             child: Container(
               child: Image.asset(
-                'assets/page-1/images/pizza-siciliana.png',
+                'assets/page-1/images/img-icon.png',
                 fit: BoxFit.cover,
               ),
             ),

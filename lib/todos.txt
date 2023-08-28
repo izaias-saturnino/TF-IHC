@@ -1,3 +1,7 @@
-1. Resolver overflows
-2. Fazer navegação entre páginas
-3. Fazer lógica de adição de itens ao carrinho, adicionar acompanhamentos...
+* Fazer lógica de adicionar acompanhamentos...
+* Telas de comparação: pesquisar -> click and hold em dois pratos diferentes para abrir tela de comparação
+* Ao adicionar um adicional, o valor do preço mostrado é 0 se o input for clicado
+* Fazer validação de senha, número máximo de caracteres quando for logar e cadastrar usuário
+* Clicar no botão de cardápio na navbar só funciona se usuário tiver conta?
+* Adicionar debounce nos inputs
+* Ao abrir janela Linux pra rodar aplicativo, definir tamanho inicial para "corrigir" os itens adicionais

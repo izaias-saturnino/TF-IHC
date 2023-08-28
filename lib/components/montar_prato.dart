@@ -75,19 +75,19 @@ class _MontarPratoState extends State<MontarPrato> {
                             ],
                           ),
                         ),
-                        const PratoSubtitulo(title: 'Adicionais'),
-                        TabelaAdicionais(
+                        widget.adicionais.isNotEmpty ? const PratoSubtitulo(title: 'Adicionais') : Container(),
+                        widget.adicionais.isNotEmpty ? TabelaAdicionais(
                           idPrato: widget.idPrato,
                           adicionais: widget.adicionais
-                        ),
-                        const PratoSubtitulo(title: 'Acompanhamentos'),
+                        ) : Container(),
+                        widget.acompanhamentos.isNotEmpty ? const PratoSubtitulo(title: 'Acompanhamentos') : Container(),
                       ],
                     ),
                   ),
-                  Acompanhamentos(
+                  widget.acompanhamentos.isNotEmpty ? Acompanhamentos(
                     idPrato: widget.idPrato,
                     acompanhamentos: widget.acompanhamentos
-                  ),
+                  ) : Container(),
                 ],
               ),
             ),

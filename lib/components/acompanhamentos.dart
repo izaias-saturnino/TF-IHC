@@ -53,6 +53,7 @@ class _AcompanhamentosState extends State<Acompanhamentos> {
                         'id': '',
                         'nome': '',
                         'preco': 0.0,
+                        'escolhido': false,
                         'imgUrl': 'polenta-frita'
                       });
                     });

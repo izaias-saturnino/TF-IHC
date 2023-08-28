@@ -6,11 +6,13 @@ class ItemCard extends StatefulWidget {
   const ItemCard({
     super.key,
     this.categoria,
-    this.prato
+    this.prato,
+    this.pagina
   });
 
   final Map<String, dynamic>? categoria;
   final Map<String, dynamic>? prato;
+  final String? pagina;
 
   @override
   State<ItemCard> createState() => _ItemCardState();
@@ -18,6 +20,16 @@ class ItemCard extends StatefulWidget {
 
 class _ItemCardState extends State<ItemCard> {
   bool ehAdmin = Usuario.usuarioAtual['admin'];
+  bool itemVisivel = true;
+  // TODO: ao entrar e sair da página de comparação, limpar a
+  // lista de pratos para comparação
+  // TODO: ao deslogar, limpar lista de pratos para comparação
+  // TODO: ao selecionar prato, mudar cor do fundo ou dar algum
+  //  feedback de que selecionou. Relacionar isso com a questão do
+  //  feedback dado ao usuário e do golfo de avaliação (percepção,
+  // interpretação, avaliação)
+  // TODO: ao remover item do carrinho, zerar adicionais e acompanhamentos
+  // TODO: para os itens mocados, colocar imagens
 
   @override
   Widget build(BuildContext context) {
@@ -41,22 +53,44 @@ class _ItemCardState extends State<ItemCard> {
 
     final _valorInput = TextEditingController(text: cardTitle);
 
-    return TextButton(
-      onPressed: () {
+    return itemVisivel ? GestureDetector(
+      onTap: () {
         if (widget.categoria != null) {
           Navigator.pushNamed(
             context,
             '/cardapio',
             arguments: { 'idCategoria': widget.categoria!['id'] }
           );
+        } else {
+          if (widget.prato!['marcadoComparacao'] && widget.pagina != 'carrinho') {
+            setState(() {
+              Product2.atualizarCampo(widget.prato!['id'], 'marcadoComparacao', 'false');
+              Product2.retirarDaComparacao(widget.prato!['id']);
+            });
+          } else if (Product2.pratosComparacao.isNotEmpty && widget.pagina != 'carrinho') {
+            setState(() {
+              Product2.atualizarCampo(widget.prato!['id'], 'marcadoComparacao', 'true');
+              Product2.adicionarParaComparacao(widget.prato!);
+            });
+            Navigator.pushNamed(context, '/comparacao');
+          } else {
+            Navigator.pushNamed(
+                context,
+                '/prato',
+                arguments: { 'idPrato': widget.prato!['id']}
+            );
+          }
         }
-        else {
-          Navigator.pushNamed(
-            context,
-            '/prato',
-            arguments: { 'idPrato': widget.prato!['id'] }
-          );
-        }
+      },
+      onLongPress: () {
+        if (widget.prato == null || widget.pagina == 'carrinho') return;
+        setState(() {
+          // selecionouParaComparacao = true;
+          if (widget.prato!['marcadoComparacao'] == false) {
+            Product2.atualizarCampo(widget.prato!['id'], 'marcadoComparacao', 'true');
+            Product2.adicionarParaComparacao(widget.prato!);
+          }
+        });
       },
       child: Container(
         // width: double.infinity,
@@ -107,16 +141,76 @@ class _ItemCardState extends State<ItemCard> {
                         ),
                       ),
                     ),
-                    Positioned(
+                    widget.prato != null &&
+                    widget.prato!['marcadoComparacao'] &&
+                    widget.pagina != 'carrinho' &&
+                    itemVisivel ? Positioned(
                       left: 0*fem,
                       top: 0*fem,
                       child: Align(
                         child: SizedBox(
-                          width: 20.32*fem,
+                          width: 30.32*fem,
                           height: 115*fem,
                           child: Container(
                             decoration: BoxDecoration (
-                              color: widget.categoria != null ? const Color(0xffd1a000): const Color(0xffffd700),
+                              color: Colors.green,
+                              borderRadius: BorderRadius.only (
+                                topLeft: Radius.circular(10*fem),
+                                bottomLeft: Radius.circular(10*fem),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.flag_circle_outlined,
+                              size: 20 * fem
+                            ),
+                          ),
+                        ),
+                      ),
+                    ) :
+                    widget.pagina == 'carrinho' &&
+                    itemVisivel ? Positioned(
+                      left: 0*fem,
+                      top: 0*fem,
+                      child: Align(
+                        child: SizedBox(
+                          width: 30.32*fem,
+                          height: 115*fem,
+                          child: Container(
+                            decoration: BoxDecoration (
+                              color: const Color(0xffd1a000),
+                              borderRadius: BorderRadius.only (
+                                topLeft: Radius.circular(10*fem),
+                                bottomLeft: Radius.circular(10*fem),
+                              ),
+                            ),
+                            child: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  CarrinhoCompras.retirarDoCarrinho(widget.prato!['id']);
+                                  Navigator.pushReplacementNamed(context, '/carrinho');
+                                });
+                              },
+                              icon: Icon(
+                                Icons.remove_shopping_cart_outlined,
+                                color: Colors.black,
+                                size: 20 * fem
+                              ),
+                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ) :
+                    itemVisivel ? Positioned(
+                      left: 0*fem,
+                      top: 0*fem,
+                      child: Align(
+                        child: SizedBox(
+                          width: 30.32*fem,
+                          height: 115*fem,
+                          child: Container(
+                            decoration: BoxDecoration (
+                              color: const Color(0xffd1a000),
                               borderRadius: BorderRadius.only (
                                 topLeft: Radius.circular(10*fem),
                                 bottomLeft: Radius.circular(10*fem),
@@ -125,9 +219,9 @@ class _ItemCardState extends State<ItemCard> {
                           ),
                         ),
                       ),
-                    ),
+                    ) : Container(),
                     Positioned(
-                      left: 27.4936523438*fem,
+                      left: 39.4936523438*fem,
                       top: 8*fem,
                       child: Align(
                         child: SizedBox(
@@ -179,6 +273,6 @@ class _ItemCardState extends State<ItemCard> {
           ],
         ),
       ),
-    );
+    ) : Container();
   }
 }

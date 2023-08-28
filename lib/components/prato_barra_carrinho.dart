@@ -19,7 +19,7 @@ class PratoBarraCarrinho extends StatelessWidget {
     return Container(
       // padding: EdgeInsets.fromLTRB(38 * fem, 9 * fem, 38 * fem, 10 * fem),
       width: double.infinity,
-      height: 69 * fem,
+      height: 45 * fem,
       decoration: BoxDecoration(
         border: Border.all(color: const Color(0x7f000000)),
         color: const Color(0xffffd700),
@@ -38,29 +38,29 @@ class PratoBarraCarrinho extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 50 * fem,
-                child: Center(
-                  child: Text(
-                    '+',
-                    style: TextStyle(
-                      fontSize: 30 * ffem
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 10 * fem,
-                child: Center(
-                  child: Container(
-                    width: 0.5 * fem,
-                    height: 30 * fem,
-                    decoration: const BoxDecoration(
-                      color: Color(0xff000000),
-                    ),
-                  ),
-                ),
-              ),
+              // SizedBox(
+              //   width: 50 * fem,
+              //   child: Center(
+              //     child: Text(
+              //       '-',
+              //       style: TextStyle(
+              //         fontSize: 30 * ffem
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(
+              //   width: 10 * fem,
+              //   child: Center(
+              //     child: Container(
+              //       width: 0.5 * fem,
+              //       height: 30 * fem,
+              //       decoration: const BoxDecoration(
+              //         color: Color(0xff000000),
+              //       ),
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 width: 80 * fem,
                 child: Center(
@@ -69,36 +69,36 @@ class PratoBarraCarrinho extends StatelessWidget {
                       CarrinhoCompras.adicionarAoCarrinho(idPrato);
                     },
                     child: Icon(
-                      Icons.shopping_cart_outlined,
+                      Icons.add_shopping_cart_outlined,
                       color: Colors.black,
                       size: 30 * fem
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                width: 10 * fem,
-                child: Center(
-                  child: Container(
-                    width: 0.5 * fem,
-                    height: 30 * fem,
-                    decoration: const BoxDecoration(
-                      color: Color(0xff000000),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 50 * fem,
-                child: Center(
-                  child: Text(
-                    '-',
-                    style: TextStyle(
-                        fontSize: 30 * ffem
-                    ),
-                  ),
-                ),
-              ),
+              // SizedBox(
+              //   width: 10 * fem,
+              //   child: Center(
+              //     child: Container(
+              //       width: 0.5 * fem,
+              //       height: 30 * fem,
+              //       decoration: const BoxDecoration(
+              //         color: Color(0xff000000),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(
+              //   width: 50 * fem,
+              //   child: Center(
+              //     child: Text(
+              //       '+',
+              //       style: TextStyle(
+              //           fontSize: 30 * ffem
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
