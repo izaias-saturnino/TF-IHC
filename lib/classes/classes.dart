@@ -78,7 +78,7 @@ class Usuario {
   static bool procurarUsuario(String nome, String senha) {
     for (var usuario in _usuarios) {
       if (usuario['nome'] == nome && usuario['senha'] == senha) {
-        // mockarDados();
+        mockarDados();
         return true;
       }
     }
