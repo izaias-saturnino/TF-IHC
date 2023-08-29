@@ -45,7 +45,7 @@ class _PratoHeaderState extends State<PratoHeader> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem,0 * fem, 7 * fem),
+                  margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem,0 * fem, 0 * fem),
                   child: Text(
                     widget.mealName,
                     style: SafeGoogleFont('Inter',
@@ -143,7 +143,7 @@ class _PratoHeaderState extends State<PratoHeader> {
             ),
           ),
           SizedBox(
-            width: 155 * fem,
+            width: 154 * fem,
             height: 171 * fem,
             child: Container(
               child: Image.asset(

@@ -20,7 +20,6 @@ class ItemCard extends StatefulWidget {
 
 class _ItemCardState extends State<ItemCard> {
   bool ehAdmin = Usuario.usuarioAtual['admin'];
-  bool itemVisivel = true;
   // TODO: ao entrar e sair da página de comparação, limpar a
   // lista de pratos para comparação
   // TODO: ao deslogar, limpar lista de pratos para comparação
@@ -53,7 +52,7 @@ class _ItemCardState extends State<ItemCard> {
 
     final _valorInput = TextEditingController(text: cardTitle);
 
-    return itemVisivel ? GestureDetector(
+    return GestureDetector(
       onTap: () {
         if (widget.categoria != null) {
           Navigator.pushNamed(
@@ -143,8 +142,8 @@ class _ItemCardState extends State<ItemCard> {
                     ),
                     widget.prato != null &&
                     widget.prato!['marcadoComparacao'] &&
-                    widget.pagina != 'carrinho' &&
-                    itemVisivel ? Positioned(
+                    widget.pagina != 'carrinho'
+                     ? Positioned(
                       left: 0*fem,
                       top: 0*fem,
                       child: Align(
@@ -167,8 +166,8 @@ class _ItemCardState extends State<ItemCard> {
                         ),
                       ),
                     ) :
-                    widget.pagina == 'carrinho' &&
-                    itemVisivel ? Positioned(
+                    widget.pagina == 'carrinho'
+                     ? Positioned(
                       left: 0*fem,
                       top: 0*fem,
                       child: Align(
@@ -201,7 +200,7 @@ class _ItemCardState extends State<ItemCard> {
                         ),
                       ),
                     ) :
-                    itemVisivel ? Positioned(
+                    Positioned(
                       left: 0*fem,
                       top: 0*fem,
                       child: Align(
@@ -219,7 +218,7 @@ class _ItemCardState extends State<ItemCard> {
                           ),
                         ),
                       ),
-                    ) : Container(),
+                    ),
                     Positioned(
                       left: 39.4936523438*fem,
                       top: 8*fem,
@@ -273,6 +272,6 @@ class _ItemCardState extends State<ItemCard> {
           ],
         ),
       ),
-    ) : Container();
+    );
   }
 }

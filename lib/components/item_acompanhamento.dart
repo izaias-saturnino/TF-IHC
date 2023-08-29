@@ -99,7 +99,7 @@ class _ItemAcompanhamentoState extends State<ItemAcompanhamento> {
               width: 100*fem,
               height: 100*fem,
               child: Image.asset(
-                'assets/page-1/images/${widget.pathImg}.png',
+                'assets/page-1/images/img-icon.png',
                 fit: BoxFit.cover
               ),
             ),

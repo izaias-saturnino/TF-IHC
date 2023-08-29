@@ -32,6 +32,8 @@ class MontarPrato extends StatefulWidget {
 }
 
 class _MontarPratoState extends State<MontarPrato> {
+  bool ehAdmin = Usuario.usuarioAtual['admin'];
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -75,16 +77,16 @@ class _MontarPratoState extends State<MontarPrato> {
                             ],
                           ),
                         ),
-                        widget.adicionais.isNotEmpty ? const PratoSubtitulo(title: 'Adicionais') : Container(),
-                        widget.adicionais.isNotEmpty ? TabelaAdicionais(
+                        widget.adicionais.isNotEmpty || ehAdmin ? const PratoSubtitulo(title: 'Adicionais') : Container(),
+                        widget.adicionais.isNotEmpty || ehAdmin ? TabelaAdicionais(
                           idPrato: widget.idPrato,
                           adicionais: widget.adicionais
                         ) : Container(),
-                        widget.acompanhamentos.isNotEmpty ? const PratoSubtitulo(title: 'Acompanhamentos') : Container(),
+                        widget.acompanhamentos.isNotEmpty || ehAdmin ? const PratoSubtitulo(title: 'Acompanhamentos') : Container(),
                       ],
                     ),
                   ),
-                  widget.acompanhamentos.isNotEmpty ? Acompanhamentos(
+                  widget.acompanhamentos.isNotEmpty || ehAdmin ? Acompanhamentos(
                     idPrato: widget.idPrato,
                     acompanhamentos: widget.acompanhamentos
                   ) : Container(),

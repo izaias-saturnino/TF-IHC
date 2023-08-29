@@ -61,6 +61,8 @@ class Usuario {
     for (var usuario in _usuarios) {
       if (usuario['nome'] == nome && usuario['senha'] == senha) {
         usuarioAtual = usuario;
+        print(usuarioAtual);
+        break;
       }
     }
   }
@@ -414,7 +416,7 @@ class Product2 {
 
   static List<Widget> displayCardapio(String idCategoria){
     List<Widget> widgets = [];
-
+    // print(_pratos);
     for (var prato in _pratos) {
       if (prato['idCategoria'] == idCategoria) {
         widgets.add(const SizedBox(height: 16));
@@ -423,7 +425,7 @@ class Product2 {
     }
 
     widgets.add(const SizedBox(height: 16));
-
+    // print(widgets);
     return widgets;
   }
 
